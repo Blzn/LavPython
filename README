@@ -1,1 +1,14 @@
-Outro teste
+LAVOURA PYTHON
+----------------
+Sprint 1
+
+  TODO                    Referência                          Status
+  Acrescentar Flat-Pages  Aprendendo Django no Planeta Terra  Feito
+  .
+  Criar template base  Aprendendo Django no Planeta Terra  9/11/2010
+  .
+  Criar form de cadastro  Aprendendo Django no Planeta Terra  8/11/2010
+  .
+  Criar form de contato  Aprendendo Django no Planeta Terra  8/11/2010
+  .
+  Ligar o form de cadastro a ação de criar usuário do Django  http://djangoweb.blogspot.com/2009/01/parte-5-integrando-o-cadastro-aos.html  9/11/201
