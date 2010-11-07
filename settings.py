@@ -1,4 +1,4 @@
-#Um teste
+#Um teste novo =D testar a nova versão
 # Django settings for LavPython project.
 
 DEBUG = True
