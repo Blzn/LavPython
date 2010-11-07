@@ -1,3 +1,4 @@
+#Um teste
 # Django settings for LavPython project.
 
 DEBUG = True
