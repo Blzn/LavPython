@@ -10,10 +10,12 @@ class FormContato(forms.Form):
 
     def enviar(self):
         titulo = 'Mensagem enviada por form de contato'
-        destino = 'lavoura_car@gmail.com'
+        destino = 'lavoura.car@gmail.com'
         texto = """
         Nome: %(nome)s
+
         E-mail: %(email)s
+
         Mensagem:
         %(mensagem)s
         """ % self.cleaned_data
