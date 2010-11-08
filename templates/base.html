@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+<title>{% block titulo %}Lavoura Car{% endblock %}</title>
+
+{% block meta %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="pt-br" />
+<meta name="keywords" content="Carros, Utilidade, Automotivos, Trajeto" />
+<meta name="description" content="Site voltado para gerência de automóveis e trajetos">
+{% endblock meta %}
+
+<!--TODO:Colocar os blocos de css quando estes já estiverem colocados-->
+
+{% block scripts %}
+{% endblock scripts %}
+
+</head>
+
+<body>
+<!--Supondo que são boas práticas, copiarei algumas coisas do modelo do livro-->
+<div id="tudo">
+  <div id=topo">
+    {% block topo %}
+    <!--Não temos nosso logo ainda, então não criarei o div foto :B-->
+    Lavoura Car
+    {% endblock topo %}
+  </div>
+
+  <div id="menu">
+    {% block menu %}
+    {% spaceless %}
+    <!--Não sabemos ainda como colocar menus dependendo do acesso, então aqui fica pra depois-->
+    {% endspaceless %}
+    {% endblock menu %}
+  </div>
+
+<h1>{% block h1 %}{% endblock %}</h1>
+
+  <div class="corpo">
+    {% block conteudo %}{% endblock %}
+  </div>
+
+  </div>
+<!-- hhmts start -->Last modified: Mon Nov  8 15:38:36 BRT 2010 <!-- hhmts end -->
+</body> </html>

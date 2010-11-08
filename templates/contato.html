@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block titulo %}Contato - {{ block.super }}{% endblock %}
+
+{% block h1 %}Contato{% endblock %}
+
+{% block conteudo %}
+{% if mostrar %}<h3>{{ mostrar }}</h3>{% endif %}
+
+Insira seus dados:
+
+<form method="post">{% csrf_token %}
+<table>
+  {{ form }}
+
+  <tr>
+    <th>&nbsp;</th>
+    <td><input type="submit" value="Enviar contato"/></td>
+  </tr>
+</table>
+</form>
+
+{% endblock conteudo %}
+
+
+

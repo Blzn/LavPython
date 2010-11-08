@@ -1,4 +1,6 @@
 # Django settings for LavPython project.
+import os
+PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -78,9 +80,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'LavPython.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+  os.path.join(PROJECT_ROOT_PATH,'templates'),
 )
 
 INSTALLED_APPS = (
@@ -95,3 +95,10 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'django.contrib.flatpages',
 )
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'lavoura.car@gmail.com'
+EMAIL_HOST_PASSWORD = 'over9000'
+EMAIL_SUBJECT_PREFIX = '[Site lavoura]'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
