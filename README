@@ -12,5 +12,6 @@ Sprint 1
   Criar form de contato  http://tinyurl.com/mxo5nv  Feito
   .
   Ligar o form de cadastro a ação de criar usuário do Django http://tinyurl.com/24zqjmq  9/11/201
+Ou, alternativamente, http://tinyurl.com/nc9xq3. Muito mais elegante mas menos modularizado. Ainda deve ser discutido como vamos organizar essa parte do projeto (como parte do projeto principal ou como uma aplicação)
 
 Notas: A senha do e-mail que foi criada para teste está no fim do arquivo de settings
