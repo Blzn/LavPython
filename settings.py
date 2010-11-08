@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-#Um teste novo =D testar a nova versão
-=======
->>>>>>> c524828603c32b3e4e5964037d21014a6e76fcfa
 # Django settings for LavPython project.
 
 DEBUG = True
