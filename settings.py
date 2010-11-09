@@ -79,6 +79,13 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'LavPython.urls'
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+                               'django.core.context_processors.request',
+                               'django.core.context_processors.auth',
+                               'django.core.context_processors.debug',
+                               'django.core.context_processors.i18n',
+                               )
+
 TEMPLATE_DIRS = (
   os.path.join(PROJECT_ROOT_PATH,'templates'),
 )

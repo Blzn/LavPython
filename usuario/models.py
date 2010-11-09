@@ -5,19 +5,18 @@ from django.contrib.localflavor.br.br_states import STATE_CHOICES
 SEXO_C = (('F','Feminino'),('M','Masculino'),)
 
 
-class Cadastro(models.Model):
+class Usuario(models.Model):
     user = models.ForeignKey(User, blank = True, null = True, editable = False)
     
     nome = models.CharField(max_length = 255)
     sobrenome = models.CharField(max_length = 255)
     sexo = models.CharField(max_length = 1, choices = SEXO_C)
-    dataNascimento = models.DateField(verbose_name = 'Data de Nascimento', 
+    dataNascimento = models.DateField(verbose_name = 'data de nascimento', 
                                       blank = True, null = True)
     email = models.EmailField(max_length = 255)
     senha  = models.CharField(max_length = 30)
-    endereco = models.CharField(max_length = 255, verbose_name = u' Endereço',
-                                blank = True, null = True)
-    num = models.CharField(max_length = 10, verbose_name = u' Número', blank = True,
+    endereco = models.CharField(max_length = 255, blank = True, null = True)
+    num = models.CharField(max_length = 10, verbose_name = ' numero', blank = True,
                            null = True)
     complemento = models.CharField(max_length = 255, null = True, blank = True)
     cep = models.CharField(max_length = 9)
@@ -32,13 +31,13 @@ class Cadastro(models.Model):
     
     def save(self):
         if not self.id:
-            emailRegistrado = Cadastro.objects.filter(email = self.email).count()
+            emailRegistrado = Usuario.objects.filter(email = self.email).count()
             if emailRegistrado:
                 raise EmailExistente
             
-            usr = User.objects.filter(username = self.email)
+            usr = Usuario.objects.filter(email = self.email)
             
-            if user:
+            if usr:
                 u = usr[0]
             else:
                 u = User.objects.create_user(self.email, self.email, self.senha)
@@ -52,7 +51,7 @@ class Cadastro(models.Model):
             self.user.save()
         
         
-        super(Cadastro, self).save()
+        super(Usuario, self).save()
         
     def __unicode__(self):
         return self.nome    
