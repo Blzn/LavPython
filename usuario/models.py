@@ -1,4 +1,4 @@
-from django.db import models
+ï»¿from django.db import models
 from django.contrib.admin.models import User
 from django.contrib.localflavor.br.br_states import STATE_CHOICES
 
@@ -15,9 +15,9 @@ class Cadastro(models.Model):
                                       blank = True, null = True)
     email = models.EmailField(max_length = 255)
     senha  = models.CharField(max_length = 30)
-    endereco = models.CharField(max_length = 255, verbose_name = u'Endereço',
+    endereco = models.CharField(max_length = 255, verbose_name = u' Endereço',
                                 blank = True, null = True)
-    num = models.CharField(max_length = 10, verbose_name = u'Número', blank = True,
+    num = models.CharField(max_length = 10, verbose_name = u' Número', blank = True,
                            null = True)
     complemento = models.CharField(max_length = 255, null = True, blank = True)
     cep = models.CharField(max_length = 9)
