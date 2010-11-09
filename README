@@ -5,13 +5,13 @@ Sprint 1
   TODO                    Referência                          Status
   Acrescentar Flat-Pages  Aprendendo Django no Planeta Terra  Feito
   .
-  Criar template base  http://tinyurl.com/nned4s  9/11/2010
+  Criar template base  http://tinyurl.com/nned4s  12/11/2010
   .
-  Criar form de cadastro  Aprendendo Django no Planeta Terra  8/11/2010
+  Criar form de cadastro  Aprendendo Django no Planeta Terra  Feito
   .
   Criar form de contato  http://tinyurl.com/mxo5nv  Feito
   .
-  Ligar o form de cadastro a ação de criar usuário do Django http://tinyurl.com/24zqjmq  9/11/201
+  Ligar o form de cadastro a ação de criar usuário do Django http://tinyurl.com/24zqjmq  Feito
 Ou, alternativamente, http://tinyurl.com/nc9xq3. Muito mais elegante mas menos modularizado. Ainda deve ser discutido como vamos organizar essa parte do projeto (como parte do projeto principal ou como uma aplicação)
 
 Notas: A senha do e-mail que foi criada para teste está no fim do arquivo de settings
