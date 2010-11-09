@@ -15,7 +15,7 @@ def registrar(request):
         form = FormCadastro()
         
     return render_to_response(
-                            'cadastro.html',
+                            'cadastro/cadastro.html',
                             locals(),
                             context_instance=RequestContext(request),
                             )
