@@ -13,7 +13,7 @@ class Usuario(models.Model):
     sexo = models.CharField(max_length = 1, choices = SEXO_C)
     dataNascimento = models.DateField(verbose_name = 'data de nascimento', 
                                       blank = True, null = True)
-    email = models.EmailField(max_length = 255)
+    email = models.EmailField(max_length = 255,verbose_name='e-mail')
     senha  = models.CharField(max_length = 30)
     endereco = models.CharField(max_length = 255, blank = True, null = True)
     num = models.CharField(max_length = 10, verbose_name = ' numero', blank = True,
