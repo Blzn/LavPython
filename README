@@ -1,11 +1,37 @@
 LAVOURA PYTHON
 ----------------
-Sprint 1
+Sprint 2
+
+ TODO                     Referência                        Status
+ Autenticar o usuário     Manual do Django                  
+ 
+ Obter e gravar           Sites da internet 
+   trajetos               Docs Google
+
+ Ligar trajetos           Revisão de Models
+   a dias                 Checar método de model
+                          ManyToManyField()
+
+ Fazer o CSS do           Dunno.
+     site         
+
+
+Notas: 
+  O CSS já deve comtemplar os menus, do usuário autenticado ou não. Deve se
+    basear no protótipo de interface. Para isso, talvez seja necessário um
+    ajuste nos templates utilizando operadores condicionais do Django template language.
+
+ Ainda há a necessidade de discutir como extrairemos o trajeto. Seria do XML? Do CSV? A API garante já algo para facilitar o processo?
+
+  
+
+
+Sprint 1  CONCLUÍDO
 
   TODO                    Referência                          Status
   Acrescentar Flat-Pages  Aprendendo Django no Planeta Terra  Feito
   .
-  Criar template base  http://tinyurl.com/nned4s  12/11/2010
+  Criar template base  http://tinyurl.com/nned4s  Feito
   .
   Criar form de cadastro  Aprendendo Django no Planeta Terra  Feito
   .
