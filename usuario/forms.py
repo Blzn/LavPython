@@ -5,7 +5,9 @@ from django.contrib.localflavor.br.br_states import STATE_CHOICES
 from forms import *
 from models import *
 
-
+class FormLogin(forms.Form):
+    email = forms.EmailField(max_length=255)
+    senha = forms.CharField(max_length = 30, widget = forms.PasswordInput)
 
 class FormCadastro(forms.ModelForm):
     class Meta:
