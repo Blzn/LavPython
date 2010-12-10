@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block titulo %}{% trans "Sua saída foi efetuada com sucesso" %} - {{ block.super }}{% endblock %}
+{% block h1 %}{% trans "Sua saída foi efetuada com sucesso." %}{% endblock %}
+
+{% block conteudo %}{{ block.super }}
+
+Sua saída foi efetuada com sucesso. Obrigado por utilizar o Lavoura Car.
+{% endblock conteudo %}

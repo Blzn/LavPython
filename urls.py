@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
+from django.contrib.auth.views import login, logout
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -18,6 +19,11 @@ urlpatterns = patterns('',
     (r'^$','views.home'),
     (r'^contato/$','contato.views.contato'),
     (r'^usuario/', include('usuario.urls')),
+    (r'^entrar/$',login,
+     {'template_name': 'entrar.html'}, 'entrar'),
+    (r'^sair/$',logout,
+     {'template_name': 'sair.html'}, 'sair'),
+
     (r'^media/(.*)$', 'django.views.static.serve',
      {'document_root': settings.MEDIA_ROOT}),
 )
