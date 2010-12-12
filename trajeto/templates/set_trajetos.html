@@ -1,4 +1,4 @@
-﻿{% extends "base.html" %}
+﻿﻿{% extends "base.html" %}
 
 {% block titulo %}Cadastro de trajetos - {{ block.super }}{% endblock %}
 
@@ -6,7 +6,7 @@
 
 {% block meta %}
 {{ block.super}}
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 {% endblock meta %}
 
 
@@ -23,6 +23,7 @@ var directionsService = new google.maps.DirectionsService();
 var map;
 var waypoints = [];
 var markers = [];
+var route;
 function initialize() {
   directionsDisplay = new google.maps.DirectionsRenderer();
   var myLatlng = new google.maps.LatLng(-12.970382,-38.512382);
@@ -74,23 +75,25 @@ function calcRoute() {
     origin:start, 
     destination:end,
     waypoints: waypts,
-    optimizeWaypoints: true,
+    optimizeWaypoints: false,
     travelMode: google.maps.DirectionsTravelMode.DRIVING
   };
   directionsService.route(request, function(response, status) {
-     if (status == google.maps.DirectionsStatus.OK) {
+    if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
-      var route = response.routes[0];
+      route = response.routes[0];
 	  clearOverlays();
 
     }
-	var distTotal = 0;
-	for (var i = 0; i < route.legs.length; i++) {
-        distTotal = distTotal + route.legs[i].distance.value;
+	
+	document.getElementById('campos').innerHTML += '<input type="hidden" value="'+ route.legs[0].distance.text +'" name="distancia" id="distancia">';
+      for(var i = 0; i < waypoints.length - 1; i++)
+      {
+	  document.getElementById('campos').innerHTML += '<input type="hidden" value="'+ waypoints[i] +'" name="waypoints" id="waypoints">'
       }
-    alert(distTotal + " metros");
-      	
+      alert(document.getElementById('distancia').value);
   });
+  
 }
 
 
@@ -99,12 +102,11 @@ function calcRoute() {
 
 {% block conteudo %}
 {{ block.super }}
-
-<form method="post">
-	      {% csrf_token %}
-	      <div><div id="map_canvas" style="float:left;width:800px; height:900px"></div>
-		<div id="directionsPanel" style="float:right;width:30%;height 100%"></div>   
-		<input type="submit" value="o_nome_do_Botão" onClick="calcRoute()">
+<div><div id="map_canvas" style="float:left;width:500px; height:500px"></div></div>
+<input method="post" type="submit" value="Calcular Rota" onClick="calcRoute()">
+<form name="campos" id="campos" action="" method="post" autocomplete="off">{% csrf_token %}
+<input type="submit" value="Confirma">
 </form>
 {{ testepunk }}
 {% endblock conteudo %}
+

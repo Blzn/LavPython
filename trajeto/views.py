@@ -6,7 +6,8 @@ from django.http import HttpResponseRedirect
 
 def trajeto(request):
     if request.method == 'POST':
-        testepunk = request.POST.get('dados',False)
+        lol = request.POST.getlist('waypoints')
+        testepunk = lol[0]
 
     return render_to_response(
         'set_trajetos.html',
