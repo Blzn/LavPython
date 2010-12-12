@@ -10,20 +10,23 @@
 <meta name="description" content="Site voltado para gerência de automóveis e trajetos">
 {% endblock meta %}
 
-<!--TODO:Colocar os blocos de css quando estes já estiverem colocados-->
-
 {% block style %}
 <link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}layout.css"/>
 {% endblock style %}
 
-
 {% block scripts %}
 {% endblock scripts %}
 
+
 </head>
 
+<!-- Excluir essa coisa horrível -->
+{% block body %}
 <body>
-<!--Supondo que são boas práticas, copiarei algumas coisas do modelo do livro-->
+{% endblock body %}
+
+
+
 <div id="tudo">
   <div id=topo">
     {% block topo %}
@@ -34,7 +37,7 @@
   <div id="menu">
     {% block menu %}
     {% spaceless %}
-    <!--Não sabemos ainda como colocar menus dependendo do acesso, então aqui fica pra depois-->
+    <!-- Colocar logo os campos com diferenciacao de permissões -->
     {% endspaceless %}
     {% endblock menu %}
   </div>
@@ -46,5 +49,5 @@
   </div>
 
   </div>
-<!-- hhmts start -->Last modified: Sun Dec 12 03:04:35 BRT 2010 <!-- hhmts end -->
+<!-- hhmts start -->Last modified: Sun Dec 12 03:46:06 BRT 2010 <!-- hhmts end -->
 </body> </html>
