@@ -108,6 +108,7 @@ INSTALLED_APPS = (
 
     'usuario',
     'trajeto',
+    'contato',
 )
 
 EMAIL_HOST = 'smtp.gmail.com'
