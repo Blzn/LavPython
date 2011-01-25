@@ -15,17 +15,11 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
-
     (r'^$','views.home'),
     (r'^contato/$','contato.views.contato'),
     (r'^usuario/', include('usuario.urls')),
-    (r'^cadtrajeto/$','trajeto.views.trajeto'),
-    (r'^editrajeto/$','trajeto.views.editar_trajeto'),
-    (r'^entrar/$',login,
-     {'template_name': 'entrar.html'}, 'entrar'),
-    (r'^sair/$',logout,
-     {'template_name': 'sair.html'}, 'sair'),
-
-    (r'^media/(.*)$', 'django.views.static.serve',
-     {'document_root': settings.MEDIA_ROOT}),
+	(r'^trajeto/', include('trajeto.urls')),
+    (r'^entrar/$','views.login'),
+    (r'^sair/$',logout,{'template_name': 'sair.html'}, 'sair'),
+    (r'^media/(.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
 )

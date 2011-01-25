@@ -5,18 +5,20 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 
 
-
+def login(request):
+	if request.method == 'POST':
+		user = auth.authenticate(username=request.POST['username'],password=request.POST['password'])
+		
+		if user is not None and user.is_active:
+			auth.login(request, user)
+			return HttpResponseRedirect('/')
+		else:
+			return HttpResponseRedirect('/')
+		
+def logout(request):
+	logout(request)
+	return HttpResponseRedirect('/')
+		
 def home(request):
-    if request.method == 'POST':
-        email = request.POST.get('email','')
-        senha = request.POST.get('senha','')
-        user = auth.authenticate(username=email,password=senha)
-        if user is not None and user.is_active:
-            auth.login(request,user)
-            return HttpResponseRedirect("/")
-        else:
-            return HttpResponseRedirect("/")
 
-    else:
-        formLog = FormLogin()
     return render_to_response("home.html",locals(),context_instance=RequestContext(request))

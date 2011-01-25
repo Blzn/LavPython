@@ -91,8 +91,8 @@ function calcRoute() {
       {
 	  document.getElementById('campos').innerHTML += '<input type="hidden" value="'+ waypoints[i] +'" name="waypoints" id="waypoints">'
       }
-      alert(document.getElementById('distancia').value);
-      alert(waypoints[0])
+ //     alert(document.getElementById('distancia').value);
+  //    alert(waypoints[0])
   });
   
 }
@@ -101,7 +101,9 @@ function deleteOverlays() {
   if (markers) {
     for (i in markers) {
       markers[i].setMap(null);
+	delete markers[i];
     }
+      markers = new Array();
       markers.length = 0;
       waypoints.length = 0;
       

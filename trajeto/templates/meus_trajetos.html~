@@ -1,0 +1,10 @@
+﻿{% extends "base.html" %}
+
+{% block topo %}{{ block.super }}{% endblock topo %}
+{% block conteudo %}
+<ul>
+	{% for trajeto in trajetos %}
+		<li><a href="{{ conta.get_absolute_url }}">{{ trajeto }}</a></li>
+	{% endfor %}
+</ul>
+{% endblock %}

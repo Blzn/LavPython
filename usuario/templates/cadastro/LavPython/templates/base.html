@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+<title>{% block titulo %}Lavoura Car{% endblock %}</title>
+
+{% block meta %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="pt-br" />
+<meta name="keywords" content="Carros, Utilidade, Automotivos, Trajeto" />
+<meta name="description" content="Site voltado para gerência de automóveis e trajetos">
+{% endblock meta %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}layout.css"/>
+{% endblock style %}
+
+{% block scripts %}
+{% endblock scripts %}
+
+
+</head>
+
+<!-- Excluir essa coisa horrível -->
+{% block body %}
+<body>
+{% endblock body %}
+
+
+
+<div id="tudo">
+  <div id=topo">
+    {% block topo %}
+    <!--Não temos nosso logo ainda, então não criarei o div foto :B-->
+    {% endblock topo %}
+  </div>
+
+  <div id="menu">
+    {% block menu %}
+    {% spaceless %}
+    <!-- Colocar logo os campos com diferenciacao de permissões -->
+    {% endspaceless %}
+    {% endblock menu %}
+  </div>
+
+<h1>{% block h1 %}{% endblock %}</h1>
+
+  <div class="corpo">
+    {% block conteudo %}{% endblock %}
+  </div>
+
+  </div>
+</body> </html>

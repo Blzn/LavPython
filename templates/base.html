@@ -30,7 +30,18 @@
 <div id="tudo">
   <div id=topo">
     {% block topo %}
-    <!--Não temos nosso logo ainda, então não criarei o div foto :B-->
+		{% if user.is_authenticated %}
+			<li><a href="{% url sair %}">Sair</a></li>
+		{% else %}
+			<h3>Login</h3>
+			<form action="/entrar/" method="post" accept-charset="utf-8">
+				{% csrf_token %}
+				<label for="username">Username</label><input type="text" name="username" value="" id="username" />
+				<label for="password">Password</label><input type="password" name="password" value="" id="password" />
+				<p><input type="submit" value="Login →"></p>
+			</form>
+
+		{% endif %}
     {% endblock topo %}
   </div>
 
@@ -49,5 +60,4 @@
   </div>
 
   </div>
-<!-- hhmts start -->Last modified: Sun Dec 12 03:46:06 BRT 2010 <!-- hhmts end -->
 </body> </html>

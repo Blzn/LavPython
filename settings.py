@@ -1,5 +1,7 @@
 # Django settings for LavPython project.
+
 import os
+
 PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 DEBUG = True
@@ -13,7 +15,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': os.path.join(PROJECT_ROOT_PATH,'lavpython.db'),                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
@@ -61,6 +63,10 @@ ADMIN_MEDIA_PREFIX = '/admin_media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '^5_5toqy=bme(&5^*^oad&2rr9p$2vl&p#7_57%i+^_ww4#_#='
+
+FIXTURE_DIRS = (
+    os.path.join(PROJECT_ROOT_PATH,'fixtures'),
+    )
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -110,6 +116,9 @@ INSTALLED_APPS = (
     'trajeto',
     'contato',
 )
+
+LOGIN_URL = '/entrar/'
+LOGOUT_URL ='/sair/'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'lavoura.car@gmail.com'

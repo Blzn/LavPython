@@ -1,9 +1,17 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
+from django.http import HttpResponseRedirect, Http404
+from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required, permission_required
 from models import *
 
-from django.http import HttpResponseRedirect
+@login_required
+def meus_trajetos(request):
+	trajetos = Trajeto.objects.filter(usuario=request.user)
+	return render_to_response('meus_trajetos.html', locals(), context_instance = RequestContext(request),)
 
+
+@login_required
 def editar_trajeto(request):
     trajeto_teste = Trajeto.objects.get(id=6)
     nome = trajeto_teste.nome
@@ -16,7 +24,7 @@ def editar_trajeto(request):
         context_instance=RequestContext(request))
 
 
-
+@login_required
 def trajeto(request):
     if request.method == 'POST':
         nome_trajeto = request.POST.get('nome')
@@ -25,8 +33,9 @@ def trajeto(request):
         distancia_total = request.POST.get('distancia')
         distancia_total = distancia_total[:-2].replace(',','.')
         coordenadas_todas = request.POST.getlist('waypoints')
+	
         
-        novo_trajeto = Trajeto(nome=nome_trajeto, distancia=distancia_total)
+        novo_trajeto = Trajeto(nome=nome_trajeto, distancia=distancia_total,usuario= request.user)
         novo_trajeto.save()
 
         for coordenada in coordenadas_todas:

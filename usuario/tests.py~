@@ -1,0 +1,13 @@
+from django.test import TestCase
+
+class TesteCadastro(TestCase):
+
+    def test_acesso_cadastro(self):
+        from django.test.client import Client
+        
+        client = Client()
+        response = client.get('/usuario/cadastro/')
+        self.assertEqual(response.status_code,200)
+
+
+        
