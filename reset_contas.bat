@@ -1,2 +1,2 @@
-python manage.py reset usuario
+python manage.py reset trajeto
 pause

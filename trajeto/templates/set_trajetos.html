@@ -24,6 +24,7 @@ var map;
 var waypoints = [];
 var markers = [];
 var route;
+
 function initialize() {
   directionsDisplay = new google.maps.DirectionsRenderer();
   var myLatlng = new google.maps.LatLng(-12.970382,-38.512382);
@@ -86,11 +87,16 @@ function calcRoute() {
 
     }
 	
-	document.getElementById('campos').innerHTML += '<input type="hidden" value="'+ route.legs[0].distance.text +'" name="distancia" id="distancia">';
-      for(var i = 0; i < waypoints.length - 1; i++)
+     document.getElementById('campos').innerHTML = {% csrf_token %} +
+  '<input type="submit" value="Confirma">' +
+'<input type="text" name="nome" id="nome">';
+
+      	document.getElementById('campos').innerHTML += '<input type="hidden" value="'+ route.legs[0].distance.text +'" name="distancia" id="distancia">';
+      for(var i = 0; i < waypoints.length; i++)
       {
 	  document.getElementById('campos').innerHTML += '<input type="hidden" value="'+ waypoints[i] +'" name="waypoints" id="waypoints">'
       }
+
  //     alert(document.getElementById('distancia').value);
   //    alert(waypoints[0])
   });
@@ -102,11 +108,16 @@ function deleteOverlays() {
     for (i in markers) {
       markers[i].setMap(null);
 	delete markers[i];
+	delete waypoints[i]
     }
       markers = new Array();
+      waypoints = new Array();
       markers.length = 0;
       waypoints.length = 0;
-      
+
+     document.getElementById('campos').innerHTML = {% csrf_token %} +
+  '<input type="submit" value="Confirma">' +
+'<input type="text" name="nome" id="nome">';
   }
 }
 

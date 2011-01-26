@@ -4,7 +4,9 @@
 {% block conteudo %}
 <ul>
 	{% for trajeto in trajetos %}
-		<li><a href="{{ conta.get_absolute_url }}">{{ trajeto.nome }}</a></li>
+		<li><a href="{{ trajeto.get_absolute_url }}">{{ trajeto.nome }}</a></li>
 	{% endfor %}
 </ul>
+	<a href="{% url cadastrar_trajeto %}">Criar Nova</a>
+
 {% endblock %}

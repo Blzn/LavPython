@@ -7,13 +7,6 @@
 {% block meta %}
 {{ block.super }}
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-{% endblock meta %}
-
-{% block body %}
-<body onload="initialize()">
-{% endblock body %}
-
-{% block scripts %}
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
 <script type="text/javascript">
 var directionDisplay;
@@ -22,7 +15,16 @@ var map;
 var waypoints = [];
 var markers = [];
 var route;
-function initialize() {
+
+function setaMarkerInicial(lat,lon)
+{
+	var myLatlng = new google.maps.LatLng(lat,lon);
+	waypoints.push(myLatlng);
+
+}
+
+function initialize_edit() {
+
   directionsDisplay = new google.maps.DirectionsRenderer();
   var myLatlng = new google.maps.LatLng(-12.970382,-38.512382);
   var myOptions = {
@@ -32,26 +34,49 @@ function initialize() {
     mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
   }
   map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-  directionsDisplay.setMap(map); 
+  directionsDisplay.setMap(map);
 
+  var start = waypoints[0]
+  var end = waypoints[waypoints.length-1];
+  var waypts = [];
+  for (var x = 1; x < waypoints.length-1; x++)
+  {
+      waypts.push({
+          location:waypoints[x],
+          stopover:false
+      });
+
+  }
+  var request = {
+    origin:start, 
+    destination:end,
+    waypoints: waypts,
+    optimizeWaypoints: false,
+    travelMode: google.maps.DirectionsTravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) 
+  {
+	if (status == google.maps.DirectionsStatus.OK) {
+		directionsDisplay.setDirections(response);
+		route = response.routes[0];
+		clearOverlays();
+    }
+	 
+	document.getElementById('campos').innerHTML = {% csrf_token %} +
+  '<input type="submit" value="Confirma">' +
+'<input type="text" name="nome" id="nome">';
+
+		document.getElementById('campos').innerHTML += '<input type="hidden" value="'+ route.legs[0].distance.text +'" name="distancia" id="distancia">';
+      for(var i = 0; i < waypoints.length; i++)
+      {
+	  document.getElementById('campos').innerHTML += '<input type="hidden" value="'+ waypoints[i] +'" name="waypoints" id="waypoints">'
+      }
+  });
   google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
   });
 }
   
-function setaMarkerInicial(latitude,longitude)
-{   
-    var pos_inicial = new google.maps.LatLng(latitude,longitude);
-
-    var marcador = new google.maps.Marker({
-	position: pos_inicial,
-	map: map
-    })
-    markers.push(marcador);
-    waypoints.push({lat: latitude, lng: longitude});
-
-}
-
 function placeMarker(location) {
   var clickedLocation = new google.maps.LatLng(location);
   var marker = new google.maps.Marker({
@@ -61,17 +86,98 @@ function placeMarker(location) {
   markers.push(marker);
   waypoints.push(location);
 }
+
+function clearOverlays() {
+  if (markers) {
+    for (i in markers) {
+      markers[i].setMap(null);
+    }
+  }
+}
+
+function calcRoute() {
+  var start = waypoints[0]
+  var end = waypoints[waypoints.length-1];
+  var waypts = [];
+  for (var x = 1; x < waypoints.length-1; x++)
+  {
+      waypts.push({
+          location:waypoints[x],
+          stopover:false
+      });
+
+  }
+  var request = {
+    origin:start, 
+    destination:end,
+    waypoints: waypts,
+    optimizeWaypoints: false,
+    travelMode: google.maps.DirectionsTravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+      route = response.routes[0];
+	  clearOverlays();
+
+    }
+	 document.getElementById('campos').innerHTML = {% csrf_token %} +
+  '<input type="submit" value="Confirma">' +
+'<input type="text" name="nome" id="nome">';
+
+	document.getElementById('campos').innerHTML += '<input type="hidden" value="'+ route.legs[0].distance.text +'" name="distancia" id="distancia">';
+      for(var i = 0; i < waypoints.length; i++)
+      {
+	  document.getElementById('campos').innerHTML += '<input type="hidden" value="'+ waypoints[i] +'" name="waypoints" id="waypoints">'
+      }
+ //     alert(document.getElementById('distancia').value);
+  //    alert(waypoints[0])
+  });
+  
+}
+
+function deleteOverlays() {
+  if (markers) {
+    for (i in markers) {
+      markers[i].setMap(null);
+	delete markers[i];
+	delete waypoints[i]
+    }
+      markers = new Array();
+      waypoints = new Array();
+      markers.length = 0;
+      waypoints.length = 0;
+
+           document.getElementById('campos').innerHTML = {% csrf_token %} +
+  '<input type="submit" value="Confirma">' +
+'<input type="text" name="nome" id="nome">';
+  }
+}
+
 </script>
+{% endblock meta %}
+{% block body %}
+{% load custom %}
+{% for coordenada in coordenadas %}
+<script type="text/javascript" language="JavaScript">
+  setaMarkerInicial({{ coordenada.latitude|toFloat }}, {{ coordenada.longitude|toFloat }});
+</script>
+{% endfor %}
+<body onload="initialize_edit()">
+
+{% endblock body %}
+
+{% block scripts %}
 {% endblock scripts %}
 
 {% block conteudo %}
 {{ block.super }}
-{% load custom %}
 <div><div id="map_canvas" style="float:left;width:500px; height:500px"></div></div>
-{% for coordenadas in cord_teste %}
-<script type="text/javascript" language="JavaScript">
-  setaMarkerInicial({{ coordenadas.latitude|toFloat }}, {{ coordenadas.longitude|toFloat }});
-</script>
-{% endfor %}
+<input method="post" type="submit" value="Calcular Rota" onClick="calcRoute()">
+<input type="button" onClick="deleteOverlays()" value="delete">
+<form name="campos" id="campos" action="" method="post" autocomplete="off">{% csrf_token %}
+<input type="submit" value="Confirma">
+<input type="text" name="nome" id="nome">
+</form>
 
 {% endblock conteudo %}
