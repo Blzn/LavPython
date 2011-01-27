@@ -1,7 +1,7 @@
 ﻿from django.contrib import admin
 from django.contrib.admin.options import ModelAdmin, TabularInline
 
-from models import Marca, Carro, Motor, PastilhaFreio
+from models import Marca, Carro, Fabricante, Motor, PastilhaFreio
 
 class AdminMarca(admin.ModelAdmin):
 	list_display = ('nome',)
@@ -11,18 +11,25 @@ class AdminCarro(admin.ModelAdmin):
 	search_fields = ('marca',)
 	list_filter = ('marca',)
 
-class MotorAdmin(admin.ModelAdmin):
+class AdminFabricante(admin.ModelAdmin):
+	list_display  = ('nome',)
+	search_fields = ('nome',)
+	ordering = ('nome',)
+	
+class AdminMotor(admin.ModelAdmin):
 	list_display = ('fabricante','modelo')
 	search_fields = ('combustivel','potencia','modelo')
-	list_filter = ('modelo',)
+	list_filter = ('carros', 'fabricante')
 	ordering = ('fabricante',)
 
-class PastilhaAdmin(admin.ModelAdmin):
+class AdminPastilha(admin.ModelAdmin):
 	list_display = ('fabricante','modelo')
 	search_fields = ('modelo',)
+	list_filter = ('carros', 'fabricante')
 	ordering = ('fabricante',)
 
 admin.site.register(Marca,AdminMarca)
 admin.site.register(Carro,AdminCarro)
-admin.site.register(Motor,MotorAdmin)
-admin.site.register(PastilhaFreio)
+admin.site.register(Fabricante,AdminFabricante)
+admin.site.register(Motor,AdminMotor)
+admin.site.register(PastilhaFreio,AdminPastilha)

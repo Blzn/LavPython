@@ -23,12 +23,18 @@ class Carro(models.Model):
 	def __unicode__(self):
 		return self.modelo
 
+class Fabricante(models.Model):
+	nome = models.CharField(max_length = 255)
+	
+	def __unicode__(self):
+		return self.nome
+		
 class Peca(models.Model):
 	class Meta:
 		abstract = True
 
 	modelo = models.CharField(max_length = 255)
-	fabricante = models.CharField(max_length = 255)
+	fabricante = models.ForeignKey('Fabricante')
 	carros = models.ManyToManyField(Carro,blank=True,null=True)
 
 	def __unicode__(self):

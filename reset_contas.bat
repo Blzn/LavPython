@@ -1,2 +1,2 @@
-python manage.py reset trajeto
+python manage.py reset carro
 pause
