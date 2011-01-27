@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 COMBUSTIVEIS = (
 	('A','Alcool'),
@@ -48,3 +49,10 @@ class Motor(Peca,models.Model):
 
 class PastilhaFreio(Peca, models.Model):
 	cod_fabricante = models.DecimalField(max_digits = 10, decimal_places= 0)
+
+class CarroUsuario(models.Model):
+	usuario = models.ForeignKey(User)
+	carro = models.ForeignKey(Carro)
+	motor = models.ForeignKey(Motor)
+	pastilhaFreio = models.ForeignKey(PastilhaFreio)
+

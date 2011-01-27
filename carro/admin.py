@@ -1,7 +1,7 @@
 ﻿from django.contrib import admin
 from django.contrib.admin.options import ModelAdmin, TabularInline
 
-from models import Marca, Carro, Fabricante, Motor, PastilhaFreio
+from models import Marca, Carro, Fabricante, Motor, PastilhaFreio, CarroUsuario
 
 class AdminMarca(admin.ModelAdmin):
 	list_display = ('nome',)
@@ -28,8 +28,15 @@ class AdminPastilha(admin.ModelAdmin):
 	list_filter = ('carros', 'fabricante')
 	ordering = ('fabricante',)
 
+class AdminCarroUsuario(admin.ModelAdmin):
+	list_display = ('usuario','carro')
+	search_field = ('usuario',)
+	list_filter = ('usuario','carro')
+	ordering = ('usuario',)
+
 admin.site.register(Marca,AdminMarca)
 admin.site.register(Carro,AdminCarro)
 admin.site.register(Fabricante,AdminFabricante)
 admin.site.register(Motor,AdminMotor)
 admin.site.register(PastilhaFreio,AdminPastilha)
+admin.site.register(CarroUsuario,AdminCarroUsuario)
