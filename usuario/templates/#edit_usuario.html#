@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block titulo %}
+  Editar conta - {{ block.super }}
+{% endblock %}
+
+{% block h1 %}Editar Conta{% endblock %}
+
+{% block conteudo %}
+  {{ block.super }}
+  <form method="post">
+    {% csrf_token %}
+    <table class="form">
+      {{ form }}
+      

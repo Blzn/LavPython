@@ -1,0 +1,13 @@
+﻿from django.contrib import admin
+from django.contrib.admin.options import ModelAdmin, TabularInline
+
+from models import Marca, Carro
+
+class AdminMarca:
+	list_display = ('nome')
+
+class AdminCarro:
+	list_display = ('marca', 'modelo')
+	search_fields = ('marca',)
+	list_filter = ('marca',)
+

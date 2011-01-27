@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect, HttpResponse
 from forms import FormCadastro
+from usuario.models import Usuario
 
 def registrar(request):
     if request.method == 'POST':
@@ -19,3 +20,5 @@ def registrar(request):
                             context_instance=RequestContext(request),
                             )
 
+
+	

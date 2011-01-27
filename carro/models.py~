@@ -1,0 +1,11 @@
+﻿from django.db import models
+
+class Marca(models.Model):
+	nome = models.CharField(max_length = 255)
+	
+
+class Carro(models.Model):
+	marca = models.ForeignKey('Marca', editable = False)
+	modelo = models.CharField(max_length = 255)
+#	motor = models.ForeignKey('Motor')
+#	partilhaFreio = models.ForeignKey('PastilhaFreio')
