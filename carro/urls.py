@@ -5,4 +5,5 @@ urlpatterns = patterns('carro.views',
 			url(r'getcarros/', 'get_carros', name = 'getCarros'),
 			url(r'getmotores/', 'get_motores', name = 'getMotores'),
 			url(r'getpastilhas/', 'get_pastilhas', name = 'getPastilhas'),
+                       url(r'^meus_carros/$','meus_carros',name='meus_carros'),
             )

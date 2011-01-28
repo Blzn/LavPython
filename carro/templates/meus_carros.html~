@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block topo %}{{ block.super }}{% endblock topo %}
+{% block conteudo %}
+<ul>
+  {% for meu_carro in carros %}
+    <li><a href="{{ meu_carro.get_absolute_url }}">{{ meu_carro.carro.modelo }}</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url cad_carro %}">Adicionar Novo Carro</a>
+
+{% endblock %}
