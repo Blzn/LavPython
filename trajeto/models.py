@@ -1,12 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
+from carro.models import CarroUsuario
 
-class Dia(models.Model):
-    data = models.DateField(blank=True,null=True)
-
-    class Meta:
-        ordering = ['-data']
+TIPO_DIA = (
+    ('T','Todos'),
+    ('S','Semana util'),
+    ('D','Data Selecionada'),
+    ('F','Fins de semana')
+    )
 
 
 class Trajeto(models.Model):
@@ -16,6 +18,9 @@ class Trajeto(models.Model):
 	
     def get_absolute_url(self):
 		return reverse('editar_trajeto', kwargs={'trajeto_id': self.id})
+
+    def __unicode__(self):
+        return self.nome
 	
     class Meta:
         ordering = ['nome']
@@ -28,3 +33,11 @@ class Coordenadas(models.Model):
 	class Meta:
 		ordering = ['id']		
 		
+class Dia(models.Model):
+    trajeto = models.ForeignKey(Trajeto)
+    carro = models.ForeignKey(CarroUsuario)
+    data = models.DateField(blank=True,null=True)
+    tipo = models.CharField(choices = TIPO_DIA,max_length = 30)
+
+    class Meta:
+        ordering = ['-data']

@@ -1,0 +1,112 @@
+﻿{% extends "base.html" %}
+
+{% block titulo %}
+	Adicionar Carro - {{ block.super }}
+{% endblock %}
+
+{% block scripts %}
+	{{ block.super }}
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$("#id_marca").change(function()
+			{
+				$.ajax(
+				{
+					type: "GET",
+					url: '/carro/getcarros?id_marca='+$("#id_marca").val(),
+					dataType: "json",
+					success: function(retorno)
+					{
+						$("#id_carro").children().remove();
+						$("#id_carro").append(
+							'<option value="">---------</option>'
+						);
+						$.each(retorno, function(i, carro)
+						{
+							$("#id_carro").append(
+								'<option value="'+
+								carro.pk +
+								'">'+
+								carro.fields['modelo']+
+								'</option>'
+							);
+
+						});
+					}
+				});
+			});
+			$("#id_carro").change(function()
+			{
+				$.ajax(
+				{
+					type: "GET",
+					url: '/carro/getmotores?id_carro='+$("#id_carro").val(),
+					dataType: "json",
+					success: function(retorno)
+					{
+						$("#id_motor").children().remove();
+						$("#id_motor").append(
+							'<option value="">---------</option>'
+						);
+						$.each(retorno, function(i, carro)
+						{
+							$("#id_motor").append(
+								'<option value="'+
+								carro.pk +
+								'">'+
+								carro.fields['modelo']+
+								'</option>'
+							);
+
+						});
+					}
+				});
+			});
+			$("#id_carro").change(function()
+			{
+				$.ajax(
+				{
+					type: "GET",
+					url: '/carro/getpastilhas?id_carro='+$("#id_carro").val(),
+					dataType: "json",
+					success: function(retorno)
+					{
+						$("#id_pastilhaFreio").children().remove();
+						$("#id_pastilhaFreio").append(
+							'<option value="">---------</option>'
+						);
+						$.each(retorno, function(i, carro)
+						{
+							$("#id_pastilhaFreio").append(
+								'<option value="'+
+								carro.pk +
+								'">'+
+								carro.fields['modelo']+
+								'</option>');
+						});
+					}
+				});
+			});
+		});
+
+	</script>
+{% endblock %}
+
+{% block h1 %}Adicionar Carro{% endblock %}
+
+{% block conteudo %}
+	{{ block.super }}
+	<form method="post">
+		{% csrf_token %}
+		<table class="form">
+			{{ form }}
+			<tr>
+				<th>&nbsp;</th>
+					<td>
+						<input type="submit" value="Registrar"/>
+					</td>
+			</tr>
+		</table>
+	</form>
+{% endblock conteudo %}

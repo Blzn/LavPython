@@ -56,3 +56,5 @@ class CarroUsuario(models.Model):
 	motor = models.ForeignKey(Motor)
 	pastilhaFreio = models.ForeignKey(PastilhaFreio)
 
+	def __unicode__(self):
+		return self.carro.modelo

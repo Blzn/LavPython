@@ -13,8 +13,9 @@
 	{% block style %}
 		<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}layout.css"/>
 	{% endblock style %}
-
+	
 	{% block scripts %}
+		<script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 	{% endblock scripts %}
 
 
@@ -29,7 +30,7 @@
 		<div id="topo">
 			<div class="topo_direita">
 				{% if user.is_authenticated %}
-					<a href="{% url sair %}">Sair</a>
+					<a href="">Sair</a>
 
 				{% else %}
 					<form action="/entrar/" method="post" accept-charset="utf-8">

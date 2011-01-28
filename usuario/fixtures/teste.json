@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "usuario.usuario", "fields": {"complemento": "soh", "nome": "Me", "bairro": "por ae", "cidade": "afdfd", "sexo": "M", "dataCadastro": "2011-01-27 17:29:20", "num": "12", "sobrenome": "Eu", "senha": "123456", "cep": "45400-000", "endereco": "ali", "dataNascimento": "2011-01-11", "estado": "PB", "email": "lavoura@uneb.com.br", "user": 6}}]
