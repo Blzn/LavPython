@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+  Associar trajeto a carro - {{ block.super }}
+{% endblock %}
+
+{% block h1 %}Associar trajeto a carro{% endblock h1 %}
+
+{% block conteudo %}
+  {{ block.super }}
+  <form method="post">
+    {% csrf_token %}
+    <table class="form">
+      {{ form }}
+      <tr>
+	<th>&nbsp;</th>
+	<td>
+	  <input type="submit" value="Registrar"/>
+	</td>
+      </tr>
+    </table>
+  </form>
+{% endblock conteudo %}

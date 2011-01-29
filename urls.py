@@ -23,4 +23,5 @@ urlpatterns = patterns('',
     (r'^entrar/$','views.login'),
     (r'^sair/$',logout,{'template_name': 'sair.html'}, 'sair'),
     (r'^media/(.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
+    (r'^dia/',include('dia.urls')),
 )
