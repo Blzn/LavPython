@@ -13,7 +13,7 @@ def meus_trajetos(request):
 
 
 @login_required
-def editar_trajeto(request, trajeto_id, classe):
+def editar_trajeto(request, trajeto_id,classe):
     trajeto = Trajeto.objects.get(id=trajeto_id)
     nome = trajeto.nome
     distancia = trajeto.distancia

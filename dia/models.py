@@ -17,6 +17,7 @@ class Dia(models.Model):
     data = models.DateField(blank=True,null=True)
     dias = models.CommaSeparatedIntegerField(max_length = 14)
     tipo = models.CharField(choices = TIPO_DIA,max_length = 30)
-
+    
     class Meta:
         ordering = ['-data']
+    

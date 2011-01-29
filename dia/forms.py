@@ -1,5 +1,6 @@
 from django import forms
 from models import *
+from trajeto.models import Trajeto
 
 
 DIAS_SEMANA = (
@@ -33,7 +34,10 @@ class FormDia(forms.ModelForm):
 
     dias_ = TextMultiField(choices=DIAS_SEMANA,)
 
-    
+    def __init__(self, usuario_id, *args, **kwargs):
+        self.base_fields['trajeto'].choices = Trajeto.objects.filter(usuario = usuario_id).values_list('pk','nome')
+        super(FormDia, self).__init__(*args, **kwargs)
+
 
     def save(self,carro,commit=True):
         dia = super(FormDia,self).save(commit=False)

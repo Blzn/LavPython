@@ -11,16 +11,6 @@ def meus_carros(request):
 	carros = CarroUsuario.objects.filter(usuario=request.user)
 	return render_to_response('meus_carros.html',locals(),context_instance = RequestContext(request))
 
-@login_required
-def associar_dia_trajeto(request, carro_id, classe):
-	carro = CarroUsuario.objects.get(id=carro_id)
-	trajetos = Trajeto.objects.filter(usuario=carro.usuario)
-
-	if request.method == 'POST':
-		pass
-	
-	return render_to_response('assoc_traj.html',locals(),context_instance=RequestContext(request))
-
 
 @login_required
 def cad_carro(request):
