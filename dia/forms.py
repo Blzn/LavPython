@@ -31,17 +31,16 @@ class FormDia(forms.ModelForm):
         model = Dia
         exclude = ('carro','dias',)
 
-    dias = TextMultiField(choices=DIAS_SEMANA,)
+    dias_ = TextMultiField(choices=DIAS_SEMANA,)
 
     
 
     def save(self,carro,commit=True):
         dia = super(FormDia,self).save(commit=False)
-
+        dia.dias = self.cleaned_data['dias_']
         dia.carro = carro
         
         if commit:
             dia.save()
 
         return dia
-  
