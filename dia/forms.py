@@ -1,4 +1,5 @@
 from django import forms
+from django import widgets
 from models import *
 
 DIAS_SEMANA = (
@@ -11,12 +12,25 @@ DIAS_SEMANA = (
     ('7,','Sabado'),
     )
 
+class TextCheckboxSelectMultiple(widgets.CheckboxSelectMultiple):
+    def render(self, name, value, **kwargs):
+        if isinstance(value, basestring):
+            value = value.split(",")
+        return super(TextCheckboxSelectMultiple, self).render(name, value, **kwargs)
+
+class TextMultiField(forms.MultipleChoiceField):
+    widget = TextCheckboxSelectMultiple
+    def clean(self, value):
+        val = super(TextMultiField, self).clean(value)
+        return ",".join(val)
+
+
 class FormDia(forms.ModelForm):
     class Meta:
         model = Dia
         exclude = ('carro','dias',)
 
-    dias = forms.MultipleChoiceField(choices= DIAS_SEMANA,widget=forms.CheckboxSelectMultiple())
+    dias = forms.TextMultiField(choices= DIAS_SEMANA,widget=TextCheckBoxSelectMultiple)
 
     
 
@@ -25,9 +39,7 @@ class FormDia(forms.ModelForm):
 
         dia.carro = carro
         
-
         if commit:
-            print dia.dias
             dia.save()
 
         return dia

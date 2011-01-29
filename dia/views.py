@@ -10,7 +10,8 @@ def associar(request):
         form = FormDia(request.POST)
         if form.is_valid():
             novo_dia = form.save(carro)
-            return HttpResponseRedirect(novo_dia.dias)
+            print novo_dia.dias
+            return HttpResponseRedirect('/')
     else:
         form = FormDia()
     
