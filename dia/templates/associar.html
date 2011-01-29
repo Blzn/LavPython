@@ -8,6 +8,7 @@
 
 {% block conteudo %}
   {{ block.super }}
+  {{ novo_dia.dias }}
   <form method="post">
     {% csrf_token %}
     <table class="form">
