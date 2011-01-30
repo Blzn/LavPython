@@ -14,9 +14,13 @@ def atualiza_carros(usuario, data = datetime.today().date()):
 			for carroDiaTrajeto in carroDiaTrajetos: 
 				if verifica_dia_trajeto(carroDiaTrajeto,dia):
 					trajeto = Trajeto.objects.get(id=carroDiaTrajeto.trajeto_id)
-					carro.quilometragem += trajeto.distancia
-					carro.kmMotor += trajeto.distancia
-					carro.kmPastilha += trajeto.distancia				
+					if carroDiaTrajeto.idaEVolta:
+						distancia = trajeto.distancia * 2
+					else:
+						distancia = trajeto.distancia
+					carro.quilometragem += distancia
+					carro.kmMotor += distancia
+					carro.kmPastilha += distancia				
 		carro.ultimoUpdate = data
 		carro.save()
 
@@ -27,9 +31,9 @@ def verifica_dia_trajeto(carroDiaTrajeto,dia):
 		return True
 	if carroDiaTrajeto.tipo == 'FS' and dia.weekday() in fim_de_semana:
 		return True
-	if carroDiaTrajeto.tipo == 'DS' and carroDiaTrajeto.data.date() == dia.date():
+	if carroDiaTrajeto.tipo == 'DS' and carroDiaTrajeto.data == dia:
 		return True
-	if carroDiaTrajeto.tipo == 'DE' and str(dia.weekday()) in dias.split(','):
+	if carroDiaTrajeto.tipo == 'DE' and str(dia.weekday()) in carroDiaTrajeto.dias.split(','):
 		return True
 	return False
 	

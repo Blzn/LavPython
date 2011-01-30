@@ -12,7 +12,7 @@ def login(request):
 		
 		if user is not None and user.is_active:
 			auth.login(request, user)
-			atualiza_carros(request.user, datetime.today.date())
+			atualiza_carros(request.user, datetime.today().date())
 			return HttpResponseRedirect('/')
 		else:
 			return HttpResponseRedirect('/')

@@ -32,7 +32,7 @@ class FormDia(forms.ModelForm):
         model = Dia
         exclude = ('carro','dias','consumo',)
     
-    dias_ = TextMultiField(choices=DIAS_SEMANA,)
+    dias_ = TextMultiField(choices=DIAS_SEMANA, required=False)
 
     def __init__(self, usuario_id, *args, **kwargs):
         self.base_fields['trajeto'].choices = Trajeto.objects.filter(usuario = usuario_id).values_list('pk','nome')
