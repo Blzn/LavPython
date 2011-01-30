@@ -10,7 +10,7 @@ def atualiza_carros(usuario, data = datetime.today().date()):
 	carros = CarroUsuario.objects.filter(usuario=usuario)
 	for carro in carros:
 		carroDiaTrajetos = Dia.objects.filter(carro=carro)
-		for dia in daterange(carro.ultimoUpdate,data - timedelta(days=1)):
+		for dia in daterange(carro.ultimoUpdate,data):
 			for carroDiaTrajeto in carroDiaTrajetos: 
 				if verifica_dia_trajeto(carroDiaTrajeto,dia):
 					trajeto = Trajeto.objects.get(id=carroDiaTrajeto.trajeto_id)
