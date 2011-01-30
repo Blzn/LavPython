@@ -4,6 +4,7 @@ from usuario.forms import FormLogin
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 from dia.functions import atualiza_carros 
+from datetime import datetime, timedelta
 
 def login(request):
 	if request.method == 'POST':
@@ -11,7 +12,7 @@ def login(request):
 		
 		if user is not None and user.is_active:
 			auth.login(request, user)
-			atualiza_carros(request.user)
+			atualiza_carros(request.user,datetime.today().date() + timedelta(days = 5))
 			return HttpResponseRedirect('/')
 		else:
 			return HttpResponseRedirect('/')

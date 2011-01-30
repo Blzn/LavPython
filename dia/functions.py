@@ -6,19 +6,19 @@ from models import Dia
 dias_uteis = [0, 1, 2, 3, 4]
 fim_de_semana = [5,6]
 
-def atualiza_carros(usuario, data = datetime.today()):
+def atualiza_carros(usuario, data = datetime.today().date()):
 	carros = CarroUsuario.objects.filter(usuario=usuario)
 	for carro in carros:
 		carroDiaTrajetos = Dia.objects.filter(carro=carro)
-		for dia in daterange(carro.ultimoUpdate,data.date -timedelta(days=1)):
+		for dia in daterange(carro.ultimoUpdate,data - timedelta(days=1)):
 			for carroDiaTrajeto in carroDiaTrajetos: 
 				if verifica_dia_trajeto(carroDiaTrajeto,dia):
-					trajetos = Trajeto.objects.filter(id=carroDiaTrajeto.trajeto)
-					for trajeto in trajetos:
-						carro.quilometragem += trajeto.distancia
-						carro.kmMotor += trajeto.distancia
-						carro.kmPastilha += trajeto.distancia				
+					trajeto = Trajeto.objects.get(id=carroDiaTrajeto.trajeto_id)
+					carro.quilometragem += trajeto.distancia
+					carro.kmMotor += trajeto.distancia
+					carro.kmPastilha += trajeto.distancia				
 		carro.ultimoUpdate = data
+		carro.save()
 
 def verifica_dia_trajeto(carroDiaTrajeto,dia):
 	if carroDiaTrajeto.tipo == 'T' :
