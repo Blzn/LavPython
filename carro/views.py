@@ -8,10 +8,15 @@ from django.http import HttpResponseRedirect, Http404, HttpResponse
 from datetime import date
 
 @login_required
-def minhas_pecas(request,carro_id,classe):
+def troca_pecas(request,carro_id,classe):
 	carro = CarroUsuario.objects.get(id=carro_id)
 	motor = Motor.objects.get(id=carro.motor_id)
-	pastilha = PastilhaFreio(id=carro.pastilhaFreio_id)
+	pastilha = PastilhaFreio.objects.get(id=carro.pastilhaFreio_id)
+	
+	if request.method == 'POST':
+		#Bah, dormirei e amanhã faço isso direito :B
+
+	return render_to_response('troca_pecas.html',locals(), context_instance = RequestContext(request))
 	
 
 
