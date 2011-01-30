@@ -30,8 +30,8 @@ class TextMultiField(forms.MultipleChoiceField):
 class FormDia(forms.ModelForm):
     class Meta:
         model = Dia
-        exclude = ('carro','dias',)
-
+        exclude = ('carro','dias','consumo',)
+    
     dias_ = TextMultiField(choices=DIAS_SEMANA,)
 
     def __init__(self, usuario_id, *args, **kwargs):
@@ -39,10 +39,11 @@ class FormDia(forms.ModelForm):
         super(FormDia, self).__init__(*args, **kwargs)
 
 
-    def save(self,carro,commit=True):
+    def save(self,carro,consumo,commit=True):
         dia = super(FormDia,self).save(commit=False)
         dia.dias = self.cleaned_data['dias_']
         dia.carro = carro
+        dia.consumo = consumo
         
         if commit:
             dia.save()

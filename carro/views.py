@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from forms import *
 from django.template import RequestContext
 from django.http import HttpResponseRedirect, Http404, HttpResponse
+from datetime import date
 
 @login_required
 def meus_carros(request):
@@ -18,7 +19,8 @@ def cad_carro(request):
 	if request.method == 'POST':
 		form = FormCarroUsuario(request.POST)
 		if form.is_valid():
-			novo_carro = form.save(request.user)
+			"Pode ser passado qualquer data. Essa é default"
+			novo_carro = form.save(request.user,date.today())
 			return HttpResponseRedirect('/')
 	else:
 		form = FormCarroUsuario()

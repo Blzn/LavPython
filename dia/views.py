@@ -14,7 +14,9 @@ def associar(request,carro_id,classe):
     if request.method == 'POST':
         form = FormDia(request.POST)
         if form.is_valid():
-            novo_dia = form.save(carro)
+            #motor = Motor.objects.get(id=carro.motor_id)
+            consumo = 3
+            novo_dia = form.save(carro,int(consumo))
             print novo_dia.dias
             return HttpResponseRedirect('/')
     else:

@@ -6,7 +6,7 @@ from models import *
 class FormCarroUsuario(forms.ModelForm):
 	class Meta:
 		model = CarroUsuario
-		exclude = ('usuario')
+		exclude = ('usuario','ultimoUpdate')
 	
 	marca = forms.ModelChoiceField(Marca.objects.all(), widget=forms.Select(), required=True)
 	
@@ -16,10 +16,12 @@ class FormCarroUsuario(forms.ModelForm):
 		self.base_fields['pastilhaFreio'].choices = ""
 		super(FormCarroUsuario, self).__init__(*args,**kwargs)
 	
-	def save(self, usuario, commit=True):
+	"""Passando-se o ultimoUpdate através da view. Com isso, fica mais fácil fazer demonstrações, embora o default seja passar como argumento na view date.today()""" 
+	def save(self, usuario,ultimoUpdate,commit=True):
 		carroUsuario = super(FormCarroUsuario, self).save(commit=False)
 		
 		carroUsuario.usuario = usuario
+		carroUsuario.ultimoUpdate = ultimoUpdate
 		
 		if commit:
 			carroUsuario.save()
