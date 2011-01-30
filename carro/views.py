@@ -8,6 +8,15 @@ from django.http import HttpResponseRedirect, Http404, HttpResponse
 from datetime import date
 
 @login_required
+def minhas_pecas(request,carro_id,classe):
+	carro = CarroUsuario.objects.get(id=carro_id)
+	motor = Motor.objects.get(id=carro.motor_id)
+	pastilha = PastilhaFreio(id=carro.pastilhaFreio_id)
+	
+
+
+
+@login_required
 def meus_carros(request):
 	carros = CarroUsuario.objects.filter(usuario=request.user)
 	return render_to_response('meus_carros.html',locals(),context_instance = RequestContext(request))
