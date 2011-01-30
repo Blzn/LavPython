@@ -7,22 +7,25 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from datetime import date
 
-#@login_required
+@login_required
 def troca_pecas(request,carro_id):
 	carro = CarroUsuario.objects.get(id=carro_id)
 	motor = Motor.objects.get(id=carro.motor_id)
 	pastilha = PastilhaFreio.objects.get(id=carro.pastilhaFreio_id)
 	
+	saude_motor =  (motor.kmMax - carro.kmMotor) * 100 / motor.kmMax
+	saude_pastilha = (pastilha.kmMax - carro.kmPastilha) * 100 / pastilha.kmMax
+
 	if request.method == 'POST':
 		form = FormTrocaPeca(request.POST,instance=carro)
-		if form.is_valid():
-			carro_editado = form.save()
-			return HttpResponseRedirect('/')
-		else:
-			#Sinaliza erro
-			return HttpResponseRedirect('/')
+		#if form.is_valid():
+		carro_editado = form.save()
+		return HttpResponseRedirect('/')
+		#else:
+		#	#Sinaliza erro
+		#	return HttpResponseRedirect('/')
 	else:
-		form = FormTrocaPeca()
+		form = FormTrocaPeca(instance=carro)
 		
 		
 

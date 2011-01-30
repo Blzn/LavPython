@@ -6,23 +6,26 @@ from models import *
 class FormTrocaPeca(forms.ModelForm):
 	class Meta:
 		model = CarroUsuario
-		exclude = ('usuario',
+		"""exclude = ('usuario',
 			   'ultimoUpdate',
 			   'carro',
 			   'quilometragem'
-			   )
+			   )"""
+		exclude = ('kmMotor','kmPastilha')
 		
-		trocar_motor = forms.BooleanField()
-		trocar_pastilhaFreio = forms.BooleanField()
+	trocar_motor = forms.BooleanField()
+	trocar_pastilhaFreio = forms.BooleanField()
 		
-		def __init__(self,kmRestantePecas,*args,**kwargs):
-			self.base_fields['motor'].help_text = kmRestantePecas['motor'] + "restantes"
-			self.base_fields['pastilhaFreio'].help_text = kmRestantePecas['pastilhaFreio'] + " restantes"
-			super(FormTrocaPeca, self).__init__(*args,**kwargs)
+	"""def __init__(self,*args,**kwargs):
+		self.base_fields['motor'].help_text = kmRestantePecas['motor'] + "restantes"
+		self.base_fields['pastilhaFreio'].help_text = kmRestantePecas['pastilhaFreio'] + " restantes"
+		super(FormTrocaPeca, self).__init__(*args,**kwargs)"""
 
-		def save(self,commit=True):
-			carroUsuario = super(FormTrocaPeca,self).save(commit=False)
-			carroUsuario.save()
+	def save(self,commit=True):
+		carroUsuario = super(FormTrocaPeca,self).save(commit=False)
+		carroUsuario.kmMotor = 15
+		carroUsuario.kmPastilha = 0
+		carroUsuario.save()
 		
 
 
