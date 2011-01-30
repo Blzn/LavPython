@@ -8,10 +8,17 @@ class FormTrocaPeca(forms.ModelForm):
 		model = CarroUsuario
 		exclude = ('usuario',
 			   'ultimoUpdate',
-			   'quilometragem',
-			   'kmMotor',
-			   'kmPastilha',
-			   'carro')
+			   'carro',
+			   'quilometragem'
+			   )
+		
+		trocar_motor = forms.BooleanField()
+		trocar_pastilhaFreio = forms.BooleanField()
+		
+		def __init__(self,kmRestantePecas,*args,**kwargs):
+			self.base_fields['motor'].help_text = kmRestantePecas['motor'] + "restantes"
+			self.base_fields['pastilhaFreio'].help_text = kmRestantePecas['pastilhaFreio'] + " restantes"
+			super(FormTrocaPeca, self).__init__(*args,**kwargs)
 
 		def save(self,commit=True):
 			carroUsuario = super(FormTrocaPeca,self).save(commit=False)

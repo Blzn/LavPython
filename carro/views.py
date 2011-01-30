@@ -14,12 +14,15 @@ def troca_pecas(request,carro_id):
 	pastilha = PastilhaFreio.objects.get(id=carro.pastilhaFreio_id)
 	
 	if request.method == 'POST':
-		form = FormTrocaPeca(request.post)
+		form = FormTrocaPeca(request.POST,instance=carro)
 		if form.is_valid():
-			carro_editado = form.save(instance=carro)
+			carro_editado = form.save()
 			return HttpResponseRedirect('/')
 		else:
-			form = FormTrocaPeca()
+			#Sinaliza erro
+			return HttpResponseRedirect('/')
+	else:
+		form = FormTrocaPeca()
 		
 		
 
