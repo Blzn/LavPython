@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+  Trocar Peças - {{ block.super }}
+{% endblock %} 
+
+{% block scripts %}
+  {{ block.super }}
+  

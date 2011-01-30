@@ -3,6 +3,22 @@ from django import forms
 from forms import *
 from models import *
 
+class FormTrocaPeca(forms.ModelForm):
+	class Meta:
+		model = CarroUsuario
+		exclude = ('usuario',
+			   'ultimoUpdate',
+			   'quilometragem',
+			   'kmMotor',
+			   'kmPastilha',
+			   'carro')
+
+		def save(self,commit=True):
+			carroUsuario = super(FormTrocaPeca,self).save(commit=False)
+			carroUsuario.save()
+		
+
+
 class FormCarroUsuario(forms.ModelForm):
 	class Meta:
 		model = CarroUsuario

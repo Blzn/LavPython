@@ -7,16 +7,26 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from datetime import date
 
-@login_required
-def troca_pecas(request,carro_id,classe):
+#@login_required
+def troca_pecas(request,carro_id):
 	carro = CarroUsuario.objects.get(id=carro_id)
 	motor = Motor.objects.get(id=carro.motor_id)
 	pastilha = PastilhaFreio.objects.get(id=carro.pastilhaFreio_id)
 	
 	if request.method == 'POST':
-		#Bah, dormirei e amanhã faço isso direito :B
+		form = FormTrocaPeca(request.post)
+		if form.is_valid():
+			carro_editado = form.save(instance=carro)
+			return HttpResponseRedirect('/')
+		else:
+			form = FormTrocaPeca()
+		
+		
 
-	return render_to_response('troca_pecas.html',locals(), context_instance = RequestContext(request))
+	return render_to_response(
+		'troca_pecas.html',
+		locals(),
+		context_instance = RequestContext(request))
 	
 
 
