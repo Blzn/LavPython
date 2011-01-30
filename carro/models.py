@@ -37,7 +37,7 @@ class Peca(models.Model):
 	modelo = models.CharField(max_length = 255)
 	fabricante = models.ForeignKey('Fabricante')
 	carros = models.ManyToManyField(Carro,blank=True,null=True)
-	kmMax = models.IntegerField()
+	kmMax = models.DecimalField(max_digits = 10,decimal_places = 2)
 
 	def __unicode__(self):
 		return self.modelo
@@ -57,12 +57,12 @@ class CarroUsuario(models.Model):
 	carro = models.ForeignKey(Carro)
 
 	motor = models.ForeignKey(Motor)
-	kmMotor = models.IntegerField(default=0,verbose_name="Km do motor",help_text="Quilometragem rodada utilizando esse motor")
+	kmMotor = models.DecimalField(max_digits = 10,decimal_places = 2,default=0,verbose_name="Km do motor",help_text="Quilometragem rodada utilizando esse motor")
 
 	pastilhaFreio = models.ForeignKey(PastilhaFreio)
-	kmPastilha = models.IntegerField(default=0,verbose_name="Km da pastilha",help_text="Quilometragem rodada utilizando essa pastilha")
+	kmPastilha = models.DecimalField(max_digits = 10,decimal_places=2,default=0,verbose_name="Km da pastilha",help_text="Quilometragem rodada utilizando essa pastilha")
 
-	quilometragem = models.IntegerField()
+	quilometragem = models.DecimalField(max_digits = 10,decimal_places=2)
 	ultimoUpdate = models.DateField()
 
 	def __unicode__(self):
