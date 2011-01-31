@@ -23,61 +23,59 @@
 
 <!-- Excluir essa coisa horrível -->
 {% block body %}
-<body>
+	<body>
 {% endblock body %}
+	<div id="todo">
+		{% block topo %}
+			<div id="topo">
+				<div class="topo_direita">
+					{% if user.is_authenticated %}
+						<a href="">Sair</a>
 
-    {% block topo %}
-		<div id="topo">
-			<div class="topo_direita">
-				{% if user.is_authenticated %}
-					<a href="">Sair</a>
-
-				{% else %}
-					<form action="/entrar/" method="post" accept-charset="utf-8">
-						{% csrf_token %}
-						<label for="username">Email</label><input type="text" name="username" value="" id="username" />
-						<label for="password">Senha</label><input type="password" name="password" value="" id="password" />
-						<p><input type="submit" value="Login"></p>
-					</form>
-				{% endif %}
+					{% else %}
+						<form action="/entrar/" method="post" accept-charset="utf-8">
+							{% csrf_token %}
+							<span>Email</span><br/><input type="text" name="username" value="" id="username" />
+							<span>Senha</span><br/><input type="password" name="password" value="" id="password" />
+							<p><input type="submit" value="Login"></p>
+						</form>
+					{% endif %}
+				</div>
+				<div class="topo_esquerda"></div>
 			</div>
-			<div class="topo_esquerda">
-			Logo
+			<div id="menu">
+					<p><a href="">Home</a></p>
+					{% if user.is_authenticated %}
+						<p><a href="">Gerenciar Conta</a></p>
+					{% else %}
+						<p><a href="">Cadastrar-se</a></p>
+					{% endif %}				
+					<p><a href="">Contato</a></p>
+					<p><a href="">FAQ</a></p>
+					<p><a href="">Sobre nós</a></p>
 			</div>
+		{% endblock topo %}
+
+
+
+
+	    <div class="corpo">
+			<h1>{% block h1 %}{% endblock %}</h1>
+			<div class="left_sidebar">
+				{% block left_sidebar %}{% endblock %}
+			</div>
+			<div class="conteudo">
+				{% block conteudo %}{% endblock %}
+			</div>
+			<div class="right_sidebar">
+				{% block right_sidebar %}{% endblock %}
+			</div>	
+	    </div>
+
+		<div id="rodape">
+			{% block rodape %}
+			{% endblock %}
 		</div>
-		<div id="menu">
-				<p><a href="">Home</a></p>
-				{% if user.is_authenticated %}
-					<p><a href="">Gerenciar Conta</a></p>
-				{% else %}
-					<p><a href="">Cadastrar-se</a></p>
-				{% endif %}				
-				<p><a href="">Contato</a></p>
-				<p><a href="">FAQ</a></p>
-				<p><a href="">Sobre nós</a></p>
-		</div>
-    {% endblock topo %}
-
-
-
-<h1>{% block h1 %}{% endblock %}</h1>
-
-  <div class="corpo">
-	<div class="left_sidebar">
-		{% block left_sidebar %}{% endblock %}
 	</div>
-	<div class="conteudo">
-		{% block conteudo %}{% endblock %}
-	</div>
-	<div class="right_sidebar">
-		{% block right_sidebar %}{% endblock %}
-	</div>	
-  </div>
-
-  <div id="rodape">
-	  {% block rodape %}
-	  {% endblock %}
-  </div>
-
 </body> 
 </html>
