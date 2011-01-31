@@ -16,7 +16,7 @@ class Dia(models.Model):
     carro = models.ForeignKey(CarroUsuario)
     data = models.DateField(blank=True,null=True)
     dias = models.CommaSeparatedIntegerField(max_length = 14, null=True, blank=True)
-    tipo = models.CharField(choices = TIPO_DIA,max_length = 30)
+    tipo = models.CharField(choices = TIP O_DIA,max_length = 30)
     consumo = models.DecimalField(max_digits = 10,decimal_places=2)
     idaEVolta = models.BooleanField()
 

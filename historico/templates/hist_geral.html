@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+  Histórico Geral - {{ block.super }}
+{% endblock %}
+
+{% block conteudo %}
+  {{ block.super }}
+  <!-- TODO: Organizar isso :B dps faço xD -->
+  {{ usuario.nome }}
+  Quantidade de quilometros percorridos: {{ histGeral.kmTotal }}
+  Trocas de pecas realizadas: {{ histGeral.trocas }}
+  Distancia media dos trajetos: {{ histGeral.mediaTrajetos }}
+  Consumo medio? A se pensar...
+
+{% endblock conteudo %} 

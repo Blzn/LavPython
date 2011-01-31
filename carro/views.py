@@ -5,7 +5,6 @@ from django.contrib.auth.decorators import login_required
 from forms import *
 from django.template import RequestContext
 from django.http import HttpResponseRedirect, Http404, HttpResponse
-from datetime import date
 
 @login_required
 def troca_pecas(request,carro_id):
@@ -13,22 +12,18 @@ def troca_pecas(request,carro_id):
 	motor = Motor.objects.get(id=carro.motor_id)
 	pastilha = PastilhaFreio.objects.get(id=carro.pastilhaFreio_id)
 	
+	
 	saude_motor =  (motor.kmMax - carro.kmMotor) * 100 / motor.kmMax
 	saude_pastilha = (pastilha.kmMax - carro.kmPastilha) * 100 / pastilha.kmMax
 
 	if request.method == 'POST':
-		form = FormTrocaPeca(request.POST,instance=carro)
-		#if form.is_valid():
-		carro_editado = form.save()
-		return HttpResponseRedirect('/')
-		#else:
-		#	#Sinaliza erro
-		#	return HttpResponseRedirect('/')
+		form = FormTrocaPeca(request.POST, instance=carro)
+		if form.is_valid():
+			carro_editado = form.save()
+			return HttpResponseRedirect('/')
 	else:
 		form = FormTrocaPeca(instance=carro)
 		
-		
-
 	return render_to_response(
 		'troca_pecas.html',
 		locals(),
@@ -49,8 +44,8 @@ def cad_carro(request):
 	if request.method == 'POST':
 		form = FormCarroUsuario(request.POST)
 		if form.is_valid():
-			"Pode ser passado qualquer data. Essa é default"
-			novo_carro = form.save(request.user,date.today())
+			"Pode ser passado qualquer data. Essa é today eh o default"
+			novo_carro = form.save(request.user)
 			return HttpResponseRedirect('/')
 	else:
 		form = FormCarroUsuario()

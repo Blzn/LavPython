@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+  Histórico Geral - {{ block.super }}
+{% endblock %}
+
+{% block conteudo %}
+  {{ block.super }}
+  {{ usuario.nome }}
+  {{ 

@@ -2,29 +2,28 @@
 from django import forms
 from forms import *
 from models import *
+from datetime import date
 
 class FormTrocaPeca(forms.ModelForm):
 	class Meta:
 		model = CarroUsuario
-		"""exclude = ('usuario',
+		exclude = ('usuario',
 			   'ultimoUpdate',
 			   'carro',
-			   'quilometragem'
-			   )"""
-		exclude = ('kmMotor','kmPastilha')
+			   'quilometragem',
+			   'kmMotor',
+			   'kmPastilha'
+			   )
 		
-	trocar_motor = forms.BooleanField()
-	trocar_pastilhaFreio = forms.BooleanField()
+	trocar_motor = forms.BooleanField(required=False,initial=False,)
+	trocar_pastilhaFreio = forms.BooleanField(required=False,initial=False,)
 		
-	"""def __init__(self,*args,**kwargs):
-		self.base_fields['motor'].help_text = kmRestantePecas['motor'] + "restantes"
-		self.base_fields['pastilhaFreio'].help_text = kmRestantePecas['pastilhaFreio'] + " restantes"
-		super(FormTrocaPeca, self).__init__(*args,**kwargs)"""
-
 	def save(self,commit=True):
 		carroUsuario = super(FormTrocaPeca,self).save(commit=False)
-		carroUsuario.kmMotor = 15
-		carroUsuario.kmPastilha = 0
+		if self.cleaned_data['trocar_motor']:
+			carroUsuario.kmMotor = 0
+		if self.cleaned_data['trocar_pastilhaFreio']: 
+			carroUsuario.kmPastilha = 0
 		carroUsuario.save()
 		
 
@@ -43,7 +42,7 @@ class FormCarroUsuario(forms.ModelForm):
 		super(FormCarroUsuario, self).__init__(*args,**kwargs)
 	
 	"""Passando-se o ultimoUpdate através da view. Com isso, fica mais fácil fazer demonstrações, embora o default seja passar como argumento na view date.today()""" 
-	def save(self, usuario,ultimoUpdate,commit=True):
+	def save(self, usuario,ultimoUpdate=date.today(),commit=True):
 		carroUsuario = super(FormCarroUsuario, self).save(commit=False)
 		
 		carroUsuario.usuario = usuario
