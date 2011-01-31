@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.8.27)  31 JAN 2011 14:41
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.8.27)  31 JAN 2011 17:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -616,18 +616,17 @@ Package: beamerinnerthemedefault 2007/01/28  (rcs-revision 1.20)
 (/usr/share/texmf/tex/latex/beamer/themes/outer/beamerouterthemedefault.sty
 Package: beamerouterthemedefault 2007/01/28  (rcs-revision 1.14)
 )))
-(/usr/share/texmf/tex/latex/beamer/themes/theme/beamerthemeWarsaw.sty
-Package: beamerthemeWarsaw 2007/01/28  (rcs-revision 1.9)
+(/usr/share/texmf/tex/latex/beamer/themes/theme/beamerthemePaloAlto.sty
+Package: beamerthemePaloAlto 2007/01/28  (rcs-revision 1.11)
 
+(/usr/share/texmf/tex/latex/beamer/themes/outer/beamerouterthemesidebar.sty
+Package: beamerouterthemesidebar 2007/01/28  (rcs-revision 1.9)
+\beamer@sidebarwidth=\dimen178
+\beamer@headheight=\dimen179
+)
 (/usr/share/texmf/tex/latex/beamer/themes/inner/beamerinnerthemerounded.sty
 Package: beamerinnerthemerounded 2007/01/28  (rcs-revision 1.5)
 )
-(/usr/share/texmf/tex/latex/beamer/themes/outer/beamerouterthemeshadow.sty
-Package: beamerouterthemeshadow 2007/01/28  (rcs-revision 1.9)
-
-(/usr/share/texmf/tex/latex/beamer/themes/outer/beamerouterthemesplit.sty
-Package: beamerouterthemesplit 2007/01/28  (rcs-revision 1.5)
-))
 (/usr/share/texmf/tex/latex/beamer/themes/color/beamercolorthemeorchid.sty
 Package: beamercolorthemeorchid 2007/01/28  (rcs-revision 1.3)
 )
@@ -669,7 +668,7 @@ Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 File: babel.def 2008/07/06 v3.8l Babel common definitions
 LaTeX Info: Redefining \textlatin on input line 82.
 \babel@savecnt=\count151
-\U@D=\dimen178
+\U@D=\dimen180
 )
 
 Package babel Warning: No hyphenation patterns were loaded for
@@ -732,13 +731,13 @@ LaTeX Font Info:    ... okay on input line 17.
  (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count152
-\scratchdimen=\dimen179
+\scratchdimen=\dimen181
 \scratchbox=\box52
 \nofMPsegments=\count153
 \nofMParguments=\count154
 \everyMPshowfont=\toks43
 \MPscratchCnt=\count155
-\MPscratchDim=\dimen180
+\MPscratchDim=\dimen182
 \MPnumerator=\count156
 \everyMPtoPDFconversion=\toks44
 )
@@ -750,7 +749,7 @@ landscape: --
 twocolumn: --
 twoside: --
 asymmetric: --
-h-parts: 28.45274pt, 307.28987pt, 28.45274pt
+h-parts: 69.22636pt, 280.74263pt, 14.22636pt
 v-parts: 0.0pt, 273.14662pt, 0.0pt
 hmarginratio: --
 vmarginratio: --
@@ -765,10 +764,10 @@ driver: pdftex
 -------------------- Page layout dimensions and switches
 \paperwidth  364.19536pt
 \paperheight 273.14662pt
-\textwidth  307.28987pt
+\textwidth  280.74263pt
 \textheight 244.6939pt
-\oddsidemargin  -43.81725pt
-\evensidemargin -43.81725pt
+\oddsidemargin  -3.04362pt
+\evensidemargin -3.04362pt
 \topmargin  -72.26999pt
 \headheight 14.22636pt
 \headsep    0.0pt
@@ -813,9 +812,9 @@ File: uni-0.def 2004/10/17 UCS: Unicode data U+0000..U+00FF
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 22.
 
-[1
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./apresentacao.toc)
+] (./apresentacao.toc)
 [2
 
 ] (./apresentacao.toc) [3
@@ -823,13 +822,13 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 ] (./apresentacao.toc) [4
 
 ]
-Overfull \vbox (9.19803pt too high) detected at line 54
+Overfull \vbox (32.07729pt too high) detected at line 54
  []
 
 [5
 
 ]
-Overfull \vbox (9.19803pt too high) detected at line 54
+Overfull \vbox (32.07729pt too high) detected at line 54
  []
 
 [6
@@ -862,20 +861,20 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 13746 strings out of 495061
- 240469 string characters out of 1182621
- 347141 words of memory out of 3000000
- 16520 multiletter control sequences out of 15000+50000
- 5810 words of font info for 21 fonts, out of 3000000 for 9000
+ 13826 strings out of 495061
+ 242849 string characters out of 1182621
+ 345691 words of memory out of 3000000
+ 16599 multiletter control sequences out of 15000+50000
+ 6115 words of font info for 22 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 45i,19n,60p,338b,942s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 45i,16n,62p,351b,937s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-texlive/fonts/
 type1/public/amsfonts/cm/cmssi12.pfb>
-Output written on apresentacao.pdf (11 pages, 138476 bytes).
+Output written on apresentacao.pdf (11 pages, 144239 bytes).
 PDF statistics:
- 431 PDF objects out of 1000 (max. 8388607)
- 32 named destinations out of 1000 (max. 500000)
- 177 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 467 PDF objects out of 1000 (max. 8388607)
+ 35 named destinations out of 1000 (max. 500000)
+ 195 words of extra memory for PDF output out of 10000 (max. 10000000)
 
