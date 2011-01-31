@@ -1,5 +1,9 @@
 \documentclass[12pt,a4paper]{beamer}
+\usetheme{Warsaw}
+\usecolortheme{seahorse}
+\usefonttheme{professionalfonts}
 \usepackage[utf8x]{inputenc}
+\usepackage[brazil]{babel}
 \usepackage{ucs}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -9,6 +13,7 @@
 \subtitle{Relatório do Sprint 2, 3 e  4}
 \date[UNEB-SI 2010.2]{Segunda Apresentação da Matéria Tópicos Especiais em Engenharia de Software}
 \institute[UNEB]{Universidade Estadual da Bahia}
+\newtheorem{confirmations}[theorem]{Confirmations}
 \begin{document}
 % Nosso foco será uma apresentação de 40 minutos. Temos que pensar bem em como dividir os slides.
 % Vamos tentar fazer os slides terem conteúdo de no máximo 3 a 4 minutos, embora saibamos que com diagramas vai dar bem mais.
@@ -26,8 +31,51 @@
 		
 		\section{Sprint Backlog 2}
 		%A não ser por essa parte. Não falamos dela, não custa nada apresentar a tecnologia. Mas deixa javascript para depois.
+			\begin{frame}
+				\frametitle{User stories}
+				\begin{block}{Item 1}<1->
+					Como usuário eu quero ligar um ou mais trajetos a um dia específico
+					
+				\begin{confirmations}
+						Usuário seleciona o dia e os trajetos que devem ser associados.
+				\end{confirmations}	
+
+				\end{block}
+				\begin{block}{Item 4}<2->
+					Como usuário eu quero gravar os meus trajetos
+					
+					\begin{confirmations}
+						\begin{itemize}
+							\item Usuário informa coordenadas no mapa e o nome do trajeto.	
+							\item Um conjunto de coordenadas são salvas como um trajeto.
+						\end{itemize}
+					\end{confirmations}
+				\end{block} 								
+			\end{frame}
+			
+			\begin{frame}
+				\frametitle{User Stories}	
+				\begin{block}{Item 15}
+					Como usuário, quero poder me autenticar no site via e-mail e senha.
+					
+					\begin{confirmations}
+						\begin{itemize}
+							\item Usuário informa e-mail e senha válidos.
+							\item Sistema retorna erro se não for válido.
+						\end{itemize}
+					\end{confirmations}
+				\end{block}
+			\end{frame}			
+			
+			
+				
 		\section{O Google Maps Api}
 		\section{Diagramas da fase de projeto}
+			\subsection{Diagrama de Classes}
+			\subsection{Diagrama de Entidade-Relacionamento}
+			\subsection{Diagrama de Atividades}
+			
+			
 	\part{Sprint 3}
 	
 		\begin{frame}
