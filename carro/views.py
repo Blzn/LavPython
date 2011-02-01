@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from forms import *
 from django.template import RequestContext
 from django.http import HttpResponseRedirect, Http404, HttpResponse
+from historico.functions import atualiza_historico_troca
 
 @login_required
 def troca_pecas(request,carro_id):
@@ -19,6 +20,7 @@ def troca_pecas(request,carro_id):
 	if request.method == 'POST':
 		form = FormTrocaPeca(request.POST, instance=carro)
 		if form.is_valid():
+			atualiza_historico_troca(form,carro)
 			carro_editado = form.save()
 			return HttpResponseRedirect('/')
 	else:

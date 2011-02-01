@@ -1,0 +1,13 @@
+from django.shortcuts import render_to_response
+from models import *
+from django.contrib.auth.decorators import login_required
+from models import *
+
+
+def atualiza_historico_troca(form,carro):
+    if(form.cleaned_data['trocar_motor']):
+        motor_velho = Motor.objects.get(id=carro.motor_id)
+        motor_novo = Motor.objects.get(id=form.cleaned_data['motor']
+
+        historico = HistoricoTroca(carro=carro,dePeca=motor_velho,paraPeca=motor_novo, tipoPeca='MT',saudePeca=carro.kmMotor,diaDaTroca=datetime.today().date(),quilometragem=carro.quilometragem)
+    

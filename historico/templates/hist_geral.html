@@ -7,10 +7,6 @@
 {% block conteudo %}
   {{ block.super }}
   <!-- TODO: Organizar isso :B dps faço xD -->
-  {{ usuario.nome }}
-  Quantidade de quilometros percorridos: {{ histGeral.kmTotal }}
-  Trocas de pecas realizadas: {{ histGeral.trocas }}
-  Distancia media dos trajetos: {{ histGeral.mediaTrajetos }}
-  Consumo medio? A se pensar...
+  Trocada {{ pecaDe.fabricante }} por {{ pecaPara.fabricante }} com desgaste de {{ histTroca.saudePeca }} no dia {{ histTroca.diaDaTroca }} apos rodados {{ histTroca.quilometragem }} com o carro {{ carro.modelo }}
 
 {% endblock conteudo %} 

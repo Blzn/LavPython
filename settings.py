@@ -117,6 +117,7 @@ INSTALLED_APPS = (
     'contato',
     'carro',
     'dia',
+    'historico',
 )
 
 LOGIN_URL = '/entrar/'
