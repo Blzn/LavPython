@@ -1,12 +1,67 @@
 {% extends "base.html" %}
 
 {% block titulo %}
-  Histórico Geral - {{ block.super }}
+	Histórico de Trocas - {{ block.super }}
+{% endblock %}
+
+{% block scripts %}
+	{{ block.super }}
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$(".tipos_peca").change(function()
+			{
+				$.ajax(
+				{
+					type: "GET",
+					url: '/historico/get_trocas?tipo_peca='+$('.tipos_peca').val()+'&carro_id=1',
+					dataType: "json",
+					success: function(retorno)
+					{
+						$(".historico_table_body").children().remove();
+						$.each(retorno, function(i, historico)
+						{
+							$(".historico_table_body").append(
+								'<div class="historico_table_dePeca">'+historico.dePeca+'</div>'+
+								'<div class="historico_table_fabricante">'+historico.deFabricante+'</div>'+
+								'<div class="historico_table_desgaste">'+historico.desgaste+'</div>'+
+								'<div class="historico_table_paraPeca">'+historico.paraPeca+'</div>'+
+								'<div class="historico_table_fabricante">'+historico.paraFabricante+'</div>'+
+								'<div class="historico_table_data">'+historico.diaDaTroca+'</div>'+
+								'<div class="historico_table_quilometragem">'+historico.quilometragem+'</div>'
+							);
+
+						});
+					}
+				});
+			});
+		});
+
+	</script>
 {% endblock %}
 
 {% block conteudo %}
-  {{ block.super }}
-  <!-- TODO: Organizar isso :B dps faço xD -->
-  Trocada {{ pecaDe.fabricante }} por {{ pecaPara.fabricante }} com desgaste de {{ histTroca.saudePeca }} no dia {{ histTroca.diaDaTroca }} apos rodados {{ histTroca.quilometragem }} com o carro {{ carro.modelo }}
+	{{ block.super }}
+	
+	<select class="tipos_peca">
+		<option value="undefined">-------</option>
+		<option value="MT">Motor</option>
+		<option value="PF">Pastilha de Freio</option>
+	</select>
+	
+	<div class="historico_table">
+		<div class="historico_table_head">
+			<div class="historico_table_dePeca">De Peça</div>
+			<div class="historico_table_fabricante">Fabricante</div>
+			<div class="historico_table_desgaste">Desgaste</div>
+			<div class="historico_table_paraPeca">Para Peça</div>
+			<div class="historico_table_fabricante">Fabricante</div>
+			<div class="historico_table_data">Data</div>
+			<div class="historico_table_quilometragem">Quilometragem</div>
+		</div>
+		<!-- o loop vai ser posto via ajax entao rlx -->
+		<div class="historico_table_body"></div>
+	</div>
+
 
 {% endblock conteudo %} 
