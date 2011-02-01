@@ -20,6 +20,6 @@ class HistoricoTroca(models.Model):
     paraPeca = generic.GenericForeignKey('content_type','paraPeca_id')
 
     tipoPeca = models.CharField(choices = TIPO_PECA, max_length = 5)
-    saudePeca = models.FloatField()
+    desgaste = models.FloatField()
     diaDaTroca = models.DateTimeField()
     quilometragem = models.FloatField()

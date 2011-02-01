@@ -20,7 +20,7 @@ def troca_pecas(request,carro_id):
 	if request.method == 'POST':
 		form = FormTrocaPeca(request.POST, instance=carro)
 		if form.is_valid():
-			atualiza_historico_troca(form,carro)
+			atualiza_historico_troca(form,carro_id)
 			carro_editado = form.save()
 			return HttpResponseRedirect('/')
 	else:
