@@ -1,9 +1,8 @@
-\documentclass[hyperref={pdfpagelabels=false},11pt]{beamer}
-\let\Tiny=\tiny
+\documentclass[12pt,a4paper]{beamer}
 \usetheme{PaloAlto} %Goettingen
 \usecolortheme{seahorse}
 \usefonttheme{professionalfonts}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 \usepackage[brazil]{babel}
 \usepackage{ucs}
 \usepackage{amsmath}
@@ -31,15 +30,14 @@
 		\end{frame}
 		
 		\section{Sprint Backlog 2}
-	
 		%A não ser por essa parte. Não falamos dela, não custa nada apresentar a tecnologia. Mas deixa javascript para depois.
 			\begin{frame}
-				\frametitle{User stories -- Trajetos}
+				\frametitle{User stories}
 				\begin{block}{Item 1}<1->
 					Como usuário eu quero ligar um ou mais trajetos a um dia específico
 					
 				\begin{confirmations}
-						{Usuário seleciona o dia e os trajetos que devem ser associados.}
+						Usuário seleciona o dia e os trajetos que devem ser associados.
 				\end{confirmations}	
 
 				\end{block}
@@ -48,7 +46,7 @@
 					
 					\begin{confirmations}
 						\begin{itemize}
-							\item Usuário informa coordenadas no mapa e o nome do trajeto.
+							\item Usuário informa coordenadas no mapa e o nome do trajeto.	
 							\item Um conjunto de coordenadas são salvas como um trajeto.
 						\end{itemize}
 					\end{confirmations}
@@ -56,7 +54,7 @@
 			\end{frame}
 			
 			\begin{frame}
-				\frametitle{User Stories -- Autenticação}	
+				\frametitle{User Stories}	
 				\begin{block}{Item 15}
 					Como usuário, quero poder me autenticar no site via e-mail e senha.
 					
@@ -72,23 +70,10 @@
 			
 				
 		\section{O Google Maps Api}
-			
-			\begin{frame}
-				\frametitle{O Que é o Google Maps API}
-				\begin{block}{Definição}
-					\begin{itemize}
-						\item API para dar aos desenvolvedores várias formas de embutir e personalizar o google maps em páginas
-						\item Feito em JavaScript
-						\item Suporte em vários browser e em celular
-					\end{itemize}	
-				\end{block}						
-			\end{frame}
-			
 		\section{Diagramas da fase de projeto}
 			\subsection{Diagrama de Classes}
 			\subsection{Diagrama de Entidade-Relacionamento}
 			\subsection{Diagrama de Atividades}
-	
 	\part{Sprint 3}
 	
 		\begin{frame}
@@ -97,112 +82,25 @@
 		\end{frame}	
 	
 		\section{Sprint Backlog 3}
-			\begin{frame}{User Stories -- Carros}
-				\begin{block}{Item 5}<1->
-					Como usuário, quero poder cadastrar o meu automóvel.
-					\begin{confirmations}
-						\begin{itemize}
-							\tiny\item Usuário seleciona as especificações de seu carro e as peças componentes
-							\tiny\item O sistema grava e associa o carro a todas as suas informações.
-						\end{itemize}
-					\end{confirmations}
-				\end{block}
-				
-				\begin{block}{Item 7}<2->
-					Como admin, quero poder cadastrar modelos de carros e suas respectivas peças
-					\begin{confirmations}
-						\begin{itemize}
-							\tiny\item O admin fornecerá dados de um determinado carro ou peça
-							\tiny\item O sistema disponibilizará os carros e peças para o usuário
-						\end{itemize}
-					\end{confirmations}
-				\end{block}
-			\end{frame}
-			
-			\begin{frame}{User Stories -- Dias}
-				\begin{block}{Item 1}
-					Como usuário, quero poder associar os meus trajetos aos dias que os farei.
-					\begin{confirmations}
-						\begin{itemize}
-							\item O usuário seleciona o carro para associar um trajeto e informa quais dias pretende executar o trajeto.
-							\item O sistema faz a associação e confirma para o usuário
-						\end{itemize}
-					\end{confirmations}
-				\end{block}
-			\end{frame}
-					
 		% Aqui que vamos falar de javascript. E ajax. Tocar no assunto, não dar uma aula sobre isso :B Faculdade não é lugar pra isso ;D
-		\section{Javascript e outros}
-			\subsection{Javascript}
-			\subsection{Ajax}
-			\subsection{JSON}
+		\section{Javascript e Ajax}
 		\section{Diagramas da fase de projeto}
-		
 	\part{Sprint 4}
 		
 		\begin{frame}
 			\frametitle{Tópicos do Sprint 4}
 			\tableofcontents[pausesections]
-		\end{frame}
-			
+		\end{frame}	
 		%Essa parte tem que ser finalizada depois. Quando estiver pronto o acabamento, que são "tarefas" do sprint 4.
  		\section{Sprint Backlog 4}
-			\begin{frame}{User Stories -- Trocas}
-				\begin{block}{Item 6}
-					Como usuário, quero informar que troquei determinada peça de meu carro
-					\begin{confirmations}
-						\begin{itemize}
-							\item O usuário marca quais peças trocar e seleciona a nova peça
-							\item O sistema atualiza o carro para utilizar essa nova peça
-						\end{itemize}
-					\end{confirmations}
-				\end{block}
-			\end{frame}
-			
-			\begin{frame}{User Stories -- Cálculo}
-				\begin{block}{Item 2}
-					Como usuário, eu quero que o sistema compute os trajetos já realizados, atualizando as condições de minhas peças e o a quilometragem do meu carro.
-					\begin{confirmations}
-						Sistema calcula automaticamente e atua os carros e peças em conformidade com os trajetos já feitos
-					\end{confirmations}
-				\end{block}
-			\end{frame}
-			
-			
-				 		
- 		
  		%Finalmente um lugar para eu estrear o pacote math do latex :B
-		\section{O cálculo}
-		\section{Diagramas da fase de projeto}
-	\part{Sprint 5}
-		\section{Sprint Backlog 5}
-			\begin{frame}
-				\frametitle{User Stories -- Histórico}
-				\begin{block}{Item 12}
-					Como usuário, quero saber quantas e quais trocas eu já fiz em um determinado carro.
-					\begin{confirmations}
-						\begin{itemize}
-							\item{Usuário seleciona um determinado carro para exibir o histórico}
-							\item{Sistema retorna dados de todas as trocas já efetuadas}
-						\end{itemize}
-					\end{confirmations}
-				\end{block}
-			\end{frame}		
-		
+		\section{O calculo}
 		\section{Interface}
 		\section{Diagramas da fase de projeto}
 	\part{A aplicação}
 		%Porque se falarmos da aplicação bastante como se fosse um produto comercial, ela acaba se tornando um. Peter Pan me ensinou isso.
 		\section{Proposta e entrega}
-			\subsection{O backlog do produto}
-			\subsection{O protótipo de interface}
-			\subsection{O diagrama conceitual}
 		\section{Direções futuras}
-			\subsection{O deploy}
-			\subsection{Melhoramentos}
 		\section{Conclusão}
-			\begin{center}
-				\textbf{Aberto a questionamentos}
-			\end{center}
 		%E aqui embaixo adicionamos bibliografia :B
 \end{document}
