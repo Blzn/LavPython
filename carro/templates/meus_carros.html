@@ -8,10 +8,12 @@
 		{% for meu_carro in carros %}
 			<div class="meu_carro">
 				<a href="{{ meu_carro.get_absolute_url }}">{{ meu_carro.carro.modelo }}</a>
-				----------------
+				-----
 				<input type=button value="Trocar Peças" onClick="parent.location='{% url carro.views.troca_pecas carro_id=meu_carro.pk %}'" />
-				----------------
+				-----
 				<input type=button value="Associar a Trajeto" onClick="parent.location='{% url dia.views.associar carro_id=meu_carro.pk %}'" />
+				-----
+				<input type=button value="Trajetos Associados" onClick="parent.location='{% url dia.views.meus_dias carro_id=meu_carro.pk %}'" />
 			</div>
 		{% endfor %}
 		<input type=button value="Adicionar Novo Carro" onClick="parent.location='{% url carro.views.cad_carro %}'" />

@@ -1,5 +1,4 @@
 \documentclass[hyperref={pdfpagelabels=false},11pt]{beamer}
-\mode<presentation>
 \let\Tiny=\tiny
 \usetheme{PaloAlto} %Goettingen
 \usecolortheme{seahorse}
@@ -7,9 +6,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
 \usepackage{ucs}
+\usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\author{Ártus Bolzanni,Thales Ramon, Vitor Pinho}
+\author{Thales Ramon, Ártus Bolzanni, Vitor Pinho}
 \title{Lavoura Car}
 \subtitle{Relatório do Sprint 2, 3 e  4}
 \date[UNEB-SI 2010.2]{Segunda Apresentação da Matéria Tópicos Especiais em Engenharia de Software}
@@ -89,7 +89,7 @@
 					\pgfuseimage{classe2}
 				\end{frame}
 				
-			\subsection{Diagrama de Sequência}
+			\subsection{Diagrama de Atividades}
 				\pgfdeclareimage[interpolate=true,height=7cm,width=10cm]{seq21}{seq2-1}
 				\begin{frame}
 					\frametitle{Cadastramento de trajetos}
@@ -217,33 +217,11 @@
 			\end{frame}
 			
 			
-					
+				 		
+ 		
  		%Finalmente um lugar para eu estrear o pacote math do latex :B
 		\section{O cálculo}
-			\begin{frame}
-				\frametitle{Como está sendo calculado}
-				\begin{itemize}
-					\item O sistema acessará todas as associações de dias a trajetos
-					\item Verificar-se-há, a partir do ultimo update, quais trajetos foram percorridos
-					\item Será verificado dia a dia, e computado nas estatísticas e no status do carro
-				\end{itemize}
-			\end{frame}
-			
 		\section{Diagramas da fase de projeto}
-			\subsection{Diagrama de Classes}
-				\pgfdeclareimage[height=7cm]{classe4}{classe4}
-				\begin{frame}
-					\frametitle{Cálculos e trocas}
-					\pgfuseimage{classe4}
-				\end{frame}
-				
-			\subsection{Diagrama de Sequência}
-				\pgfdeclareimage[height=7cm]{seq4}{seq4calculo}
-				\begin{frame}
-					\frametitle{Cálculo dos dias}
-					\pgfuseimage{seq4}
-				\end{frame}
-			
 	\part{Sprint 5}
 		\section{Sprint Backlog 5}
 			\begin{frame}
@@ -260,166 +238,12 @@
 			\end{frame}		
 		
 		\section{Interface}
-			\begin{frame}
-				\frametitle{Projeto da interface}
-				\begin{itemize}
-					\item Protótipos
-					\item CSS
-					\item Javascript
-				\end{itemize}
-			\end{frame}
-			
-						
 		\section{Diagramas da fase de projeto}
-			\subsection{Diagrama de Classes}
-				\pgfdeclareimage[height=7cm]{classe5}{classe5}
-				\begin{frame}
-					\frametitle{Trocas e Histórico}
-					\pgfuseimage{classe5}
-				\end{frame}
-			\subsection{Diagrama de Sequência}
-				\pgfdeclareimage[height=7cm,width=10cm]{seqTrocaHist}{seqTrocaHist}
-				\begin{frame}
-					\frametitle{Troca e registro no histórico}
-					\pgfuseimage{seqTrocaHist}
-				\end{frame}
-				
 	\part{A aplicação}
 		%Porque se falarmos da aplicação bastante como se fosse um produto comercial, ela acaba se tornando um. Peter Pan me ensinou isso.
 		\section{Proposta e entrega}
 			\subsection{O backlog do produto}
-				\begin{frame}
-					\frametitle{Backlog -- Altíssima Prioridade}
-					\begin{block}{Item 1}
-						Trajetos podem ser ligados a dia.
-						\begin{itemize}
-							\item{Complexidade: 8}
-							\item{Status: Feito}
-						\end{itemize}
-					\end{block}
-					
-					\begin{block}{Item 2}
-						Dados são calculados a partir dos trajetos feitos em dia.
-						\begin{itemize}
-							\item{Complexidade: 21}
-							\item{Status: Feito}
-						\end{itemize}
-					\end{block}
-				
-				\begin{block}{Item 4}
-					Usuário pode gravar trajetos
-					\begin{itemize}
-						\item{Complexidade: 13}
-						\item{Status: Feito}
-					\end{itemize}
-				\end{block}
-			\end{frame}
-			
-			\begin{frame}
-				\frametitle{Backlog -- Alta Prioridade}
-				\begin{block}{Item 5}
-					Usuário pode cadastrar seu automóvel
-					\begin{itemize}
-						\item{Complexidade: 5}
-						\item{Status: Feito}
-					\end{itemize}
-				\end{block}
-				
-				\begin{block}{Item 6}
-					Usuário pode informar que realizou troca
-					\begin{itemize}
-						\item{Complexidade: 2}
-						\item{Status: Feito}
-					\end{itemize}
-				\end{block}
-			\end{frame}
-			
-			\begin{frame}
-				\frametitle{Backlog -- Alta Prioridade}
-				\begin{block}{Item 7}
-					Admin pode inserir dados de modelos de automóveis
-					\begin{itemize}
-						\item{Complexidade: 3}
-						\item{Status: Feito}
-					\end{itemize}
-				\end{block}
-				
-				\begin{block}{Item 15}
-					O usuário pode se autenticar
-					\begin{itemize}
-						\item{Complexidade: 8}
-						\item{Status: Feito}
-					\end{itemize}
-				\end{block}
-			\end{frame}
-			
-			\begin{frame}
-				\frametitle{Backlog -- Média Prioridade}
-				\begin{block}{Item 8}
-					Usuários podem se cadastrar
-					\begin{itemize}
-						\item{Complexidade: 2}
-						\item{Status: Feito}
-					\end{itemize}
-				\end{block}
-				
-				\begin{block}{Item 9}
-					Usuários são notificados sobre trocas
-					\begin{itemize}
-						\item{Complexidade: 3}
-						\item{Status: Em andamento}
-					\end{itemize}
-				\end{block}
-				
-				\begin{block}{Item 10}
-					Admin pode gerenciar usuários
-					\begin{itemize}
-						\item{Complexidade: 5}
-						\item{Status: Feito}
-					\end{itemize}
-				\end{block}
-			\end{frame}
-			
-			\begin{frame}
-				\frametitle{Backlog -- Baixa Prioridade}
-				\begin{block}{Item 11}
-					Admin pode inserir páginas planas
-					\begin{itemize}
-						\item{Complexidade: 1}
-						\item{Status: Feito}
-					\end{itemize}
-				\end{block}
-				
-				\begin{block}{Item 12}
-					Usuário pode consultar histórico de trocas
-					\begin{itemize}
-						\item{Complexidade: 8}
-						\item{Status: Feito}
-					\end{itemize}
-				\end{block}
-			\end{frame}
-			
-			\begin{frame}
-				\frametitle{Backlog -- Baixa Prioridade}
-				\begin{block}{Item 13}
-					Usuário pode gerenciar conta
-					\begin{itemize}
-						\item{Complexidade: 5}
-						\item{Status: Feito}
-					\end{itemize}
-				\end{block}
-			
-				\begin{block}{Item 14}
-					Usuário pode enviar e-mail para os admins
-					\begin{itemize}
-						\item{Complexidade: 3}
-						\item{Status: Feito}
-					\end{itemize}
-				\end{block}
-			\end{frame}
-					
-						
-			
+			\subsection{O protótipo de interface}
 			\subsection{O diagrama conceitual}
 				\pgfdeclareimage[interpolate=true,height=7cm]{diaconc}{classes_lavoura_t}
 				\begin{frame}
@@ -429,13 +253,8 @@
 				\end{frame}
 					
 		\section{Direções futuras}
-			\begin{frame}
-				\begin{itemize}
-					\item{O deploy}
-					\item{Direcões futuras}
-				\end{itemize}
-			\end{frame}
-		
+			\subsection{O deploy}
+			\subsection{Melhoramentos}
 		\section{Conclusão}
 			\begin{center}
 				\textbf{Não pegar compiladores e tópicos especiais em engenharia de software ao mesmo tempo.}

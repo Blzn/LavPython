@@ -35,7 +35,7 @@ def edituser(request):
         form = FormEdit(instance=usuario)
         
         #form = FormCadastro(instance=request.user)
-    return render_to_response('cadastro/cadastro.html',
+    return render_to_response('editar/editar.html',
                             locals(),
                             context_instance=RequestContext(request),)
 	

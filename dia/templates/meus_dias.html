@@ -1,0 +1,47 @@
+﻿{% extends "base.html" %}
+
+
+{% block titulo %}
+  Trajetos com {{ carro.carro.modelo }} - {{ block.super }}
+{% endblock %}
+
+{% block h1 %}Trajetos com {{ carro.carro.modelo }}{% endblock h1 %}
+
+{% block conteudo %}
+
+	<div id="meus_dias">
+		{% if dias %}
+			{% for dia in dias %}
+				<p>
+					<b>Trajeto:</b> <a href="{{ dia.get_absolute_url }}">{{ dia.trajeto.nome }}</a> 
+					<b>Distância:</b> {{ dia.trajeto.distancia }}
+					<b>Ida e Volta:</b>
+					{% if dia.idaEVolta %}
+						Sim
+					{% else %}
+						Não
+					{% endif %}
+					<b>Tipo:</b>
+					{% if dia.tipo == 'T' %}
+						Todos os dias
+					{% endif %}
+					{% if dia.tipo == 'SU' %}
+						Segunda-a-sexta
+					{% endif %}
+					{% if dia.tipo == 'DS' %}
+						{{ dia.data }}
+					{% endif %}
+					{% if dia.tipo == 'FS' %}
+						Fins de semana
+					{% endif %}
+					{% if dia.tipo == 'DE' %}
+						Dias Específicos 
+					{% endif %}									
+				</p>
+			{% endfor %}
+		{% else %}
+			Você não tem nenhum trajeto associado a {{ carro.carro.modelo }}
+		{% endif %}
+	</div>
+
+{% endblock %}

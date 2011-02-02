@@ -7,6 +7,7 @@ from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from carro.models import Motor
+from models import Dia
 
 @login_required
 def associar(request,carro_id,classe):
@@ -26,3 +27,14 @@ def associar(request,carro_id,classe):
         'associar.html',
         locals(),
         context_instance=RequestContext(request))
+		
+@login_required
+def meus_dias(request, carro_id):
+    carro = CarroUsuario.objects.get(id=carro_id)
+    dias = carro.dia_set.all()	
+    dias_da_semana = ['Seg','Ter','Qua','Qui','Sex','Sab','Dom']
+
+    return render_to_response(
+		'meus_dias.html',
+		locals(),
+		context_instance=RequestContext(request))

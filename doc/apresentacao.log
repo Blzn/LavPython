@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.8.27)  2 FEB 2011 05:40
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.8.27)  2 FEB 2011 04:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1003,274 +1003,84 @@ File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
 ) (./apresentacao.nav)
 (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2004/10/17 UCS: Unicode data U+0000..U+00FF
-)
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+] (./apresentacao.toc) [2
 
 ] (./apresentacao.toc)
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[2
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
 [3
 
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
+] (./apresentacao.toc) [4
 
-[4
+] [5
 
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
+] [6
 
-[5
+] [7
 
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
+] [8
 
-[6
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[7
+] [9
 
  <./classe2.png (PNG copy)>]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[8
+[10
 
  <./seq2-1.png (PNG copy)>]
 Overfull \hbox (6.27098pt too wide) in paragraph at lines 103--103
 [][]  
  []
 
-
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[9
-
- <./seq2-2.png (PNG copy)>] (./apresentacao.toc)
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[10
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
 [11
 
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[12
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[13
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[14
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[15
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[16
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[17
-
- <./classe3.png (PNG copy)>]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[18
+ <./seq2-2.png (PNG copy)>] (./apresentacao.toc) [12
 
 ] (./apresentacao.toc)
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
+[13
 
-[19
+] (./apresentacao.toc) [14
 
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
+] [15
 
-[20
+] [16
 
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
+] [17
 
-[21
+] [18
 
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
+] [19
 
-[22
+] [20
+
+] [21
+
+ <./classe3.png (PNG copy)>] [22
+
+] (./apresentacao.toc) [23
+
+] (./apresentacao.toc) [24
 
 ]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
+(./apresentacao.toc) [25
 
-[23
+] [26
 
- <./classe4.png (PNG copy)>]
-Overfull \hbox (179.61876pt too wide) in paragraph at lines 245--245
-[][]  
- []
+] [27
 
-
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[24
-
- <./seq4calculo.png (PNG copy)>]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[25
+] [28
 
 ]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[26
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[27
-
- <./classe5.png (PNG copy)>]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[28
-
- <./seqTrocaHist.png (PNG copy)>]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
+Overfull \hbox (3.24629pt too wide) has occurred while \output is active
+ []\OT1/cmss/m/n/6 Melhoramentos  
  []
 
 [29
 
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
+ <./classes_lavoura_t.png (PNG copy)>]
+Overfull \hbox (3.24629pt too wide) has occurred while \output is active
+ []\OT1/cmss/m/n/6 Melhoramentos  
  []
 
 [30
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[31
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[32
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[33
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[34
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[35
-
- <./classes_lavoura_t.png (PNG copy)>]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[36
-
-]
-Overfull \hbox (3.1734pt too wide) has occurred while \output is active
- \OT1/cmss/m/n/6 Bolzanni,Thales 
- []
-
-[37
 
 ]
 \tf@nav=\write5
@@ -1284,74 +1094,23 @@ Overfull \hbox (3.1734pt too wide) has occurred while \output is active
 
  (./apresentacao.aux) ) 
 Here is how much of TeX's memory you used:
- 14235 strings out of 495061
- 246400 string characters out of 1182621
- 342719 words of memory out of 3000000
- 16901 multiletter control sequences out of 15000+50000
+ 14177 strings out of 495061
+ 245828 string characters out of 1182621
+ 341974 words of memory out of 3000000
+ 16867 multiletter control sequences out of 15000+50000
  6459 words of font info for 23 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 45i,16n,62p,339b,945s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Navigation38} has been refer
-enced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation40} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation42} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation41} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation43} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline5.13.2.41} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline5.13.1.35} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline4.12.2.34} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline4.12.1.33} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline3.9.2.30} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline3.9.1.29} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline2.6.1.21} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline2.5.3.20} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline2.5.2.19} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline2.5.1.18} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline1.3.2.10} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline1.3.1.9} has been referenced but does not ex
-ist, replaced by a fixed one
-
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share
-/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-texl
-ive/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-texlive/fonts/type1/public/a
-msfonts/cm/cmssbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
-m/cmssi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi8.p
-fb>
-Output written on apresentacao.pdf (37 pages, 807718 bytes).
+ 45i,16n,62p,335b,944s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
+/cmss10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss12.pfb
+></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-texli
+ve/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-texlive/fonts/type1/publ
+ic/amsfonts/cm/cmssi8.pfb>
+Output written on apresentacao.pdf (30 pages, 573480 bytes).
 PDF statistics:
- 1435 PDF objects out of 1440 (max. 8388607)
- 125 named destinations out of 1000 (max. 500000)
- 406 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1209 PDF objects out of 1440 (max. 8388607)
+ 93 named destinations out of 1000 (max. 500000)
+ 378 words of extra memory for PDF output out of 10000 (max. 10000000)
 
