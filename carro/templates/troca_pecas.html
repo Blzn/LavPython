@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
 {% block titulo %}
-  Trocar Peças - {{ block.super }}
+  Troca de Peças - {{ block.super }}
 {% endblock %} 
+
+{{% block h1 %}Troca de Peças{% endblock %}
 
 {% block conteudo %}
   {{ block.super }}
@@ -10,19 +12,14 @@
   <form method="post">
     {% csrf_token %}
 		<table class="form">
-		  <tr>
-		    <td>
-		      {{ carro.quilometragem }}
-		    </td>
-		  </tr>
 			<tr>
 				<td>
-					Motor: {{ motor.modelo }} -- {{ motor.fabricante}} Saude:{{ saude_motor }}%  {{ form.motor }} {{ form.trocar_motor }}
+					Motor: {{ motor.modelo }} -- {{ motor.fabricante}} --  Saude:{{ saude_motor }}%  -- {{ form.motor }} -- Trocar peça? {{ form.trocar_motor }}
 				</td>
 			</tr>
 			<tr>
 				<td>
-				Pastilha: {{ pastilha.modelo }} -- {{ pastilha.fabricante }} Saude: {{ saude_pastilha }}% {{ form.pastilhaFreio }} {{ form.trocar_pastilhaFreio }}
+				Pastilha: {{ pastilha.modelo }} -- {{ pastilha.fabricante }} -- Saude: {{ saude_pastilha }}% -- {{ form.pastilhaFreio }} -- Trocar peça? {{ form.trocar_pastilhaFreio }}
 				</td>
 			</tr>
 			<tr>

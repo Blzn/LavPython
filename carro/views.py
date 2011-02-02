@@ -7,6 +7,22 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from historico.functions import atualiza_historico_troca
 
+
+@login_required
+def carrousuario(request, carro_id):
+	carrousuario = CarroUsuario.objects.get(id=carro_id)
+	carro = Carro.objects.get(id=carrousuario.carro_id)
+	motor = Motor.objects.get(id=carrousuario.motor_id)
+	pastilha = PastilhaFreio.objects.get(id=carrousuario.pastilhaFreio_id)
+	saude_motor =  (motor.kmMax - carrousuario.kmMotor) * 100 / motor.kmMax
+	saude_pastilha = (pastilha.kmMax - carrousuario.kmPastilha) * 100 / pastilha.kmMax
+	
+	return render_to_response(
+		'carro.html',
+		locals(),
+		context_instance = RequestContext(request))
+
+
 @login_required
 def troca_pecas(request,carro_id):
 	carro = CarroUsuario.objects.get(id=carro_id)

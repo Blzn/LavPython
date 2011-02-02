@@ -1,0 +1,17 @@
+﻿{% extends "base.html" %}
+
+{% block titulo %}Meu Carro -- {{ block.super }}{% endblock %}
+
+{% block h1 %}Meu Carro{% endblock %}
+
+{% block conteudo %}
+	<div id="meu_carro">
+		<p><b>Modelo:</b> {{ carro.modelo }} <b>Quilometragem do Carro:</b> {{ carrousuario.quilometragem }}</p>
+		<p><b>Motor:</b> {{ motor.modelo }} <b>Saúde da Peça:</b> {{ saude_motor }}</p>
+		<p><b>Pastilha:</b> {{ pastilha.modelo }} <b>Saúde da Peça:</b> {{ saude_pastilha }}</p>
+		<p>
+			<input type=button value="Trocar Peças" onClick="parent.location='{% url carro.views.troca_pecas carro_id=carro_id %}'" />
+			<input type=button value="Associar a Trajeto" onClick="parent.location='{% url dia.views.associar carro_id=carro_id %}'" />		
+		</p>
+	</div>
+{% endblock %}

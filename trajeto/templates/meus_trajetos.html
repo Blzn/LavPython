@@ -1,12 +1,19 @@
 ﻿{% extends "base.html" %}
 
 {% block topo %}{{ block.super }}{% endblock topo %}
-{% block conteudo %}
-<ul>
-	{% for trajeto in trajetos %}
-		<li><a href="{{ trajeto.get_absolute_url }}">{{ trajeto.nome }}</a></li>
-	{% endfor %}
-</ul>
-	<a href="{% url cadastrar_trajeto %}">Criar Nova</a>
 
+{% block titulo %}Meus Trajetos - {{ block.super }}{% endblock %}
+
+{% block h1 %}Meus Trajetos{% endblock %}
+  
+{% block conteudo %}
+	<div id="meus_carros">
+		{% for trajeto in trajetos %}
+		<div class="meu_carro">
+			<a href="{{ trajeto.get_absolute_url }}">{{ trajeto.nome }}</a>
+			----- Distância:{{ trajeto.distancia}}km ---- 
+		</div>	
+		{% endfor %}
+		<input type=button value="Adicionar Novo Trajeto" onClick="parent.location='{% url cadastrar_trajeto %}'" />
+	</div>
 {% endblock %}

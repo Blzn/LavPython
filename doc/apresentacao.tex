@@ -83,9 +83,24 @@
 			
 		\section{Diagramas da fase de projeto}
 			\subsection{Diagrama de Classes}
-			\subsection{Diagrama de Entidade-Relacionamento}
+				\pgfdeclareimage[interpolate=true,height=7cm]{classe2}{classe2}
+				\begin{frame}
+					\frametitle{Criação, edição e visualização de trajetos}
+					\pgfuseimage{classe2}
+				\end{frame}
+				
 			\subsection{Diagrama de Atividades}
-	
+				\pgfdeclareimage[interpolate=true,height=7cm,width=10cm]{seq21}{seq2-1}
+				\begin{frame}
+					\frametitle{Cadastramento de trajetos}
+					\pgfuseimage{seq21}
+				\end{frame}	
+				
+				\pgfdeclareimage[interpolate=true,height=7cm]{seq22}{seq2-2}
+				\begin{frame}
+					\frametitle{Cadastramento de carros}
+					\pgfuseimage{seq22}
+				\end{frame}
 	\part{Sprint 3}
 	
 		\begin{frame}
@@ -131,9 +146,45 @@
 		% Aqui que vamos falar de javascript. E ajax. Tocar no assunto, não dar uma aula sobre isso :B Faculdade não é lugar pra isso ;D
 		\section{Javascript e outros}
 			\subsection{Javascript}
+			
+				\begin{frame}
+					\frametitle{Javascript}
+					\begin{itemize}
+						\item{ECMAScript}
+						\item{Linguagem de Scripting}
+						\item{Usada por web-browsers}
+						\item{Uso na aplicação Lavoura Python}
+					\end{itemize}
+				\end{frame}
+				
 			\subsection{Ajax}
+			
+				\begin{frame}
+					\frametitle{Ajax}
+					\begin{itemize}
+						\item{Asynchronous Javascript and XML}
+						\item{Aplicação}
+						\item{Utilização na aplicação desenvolvida}
+					\end{itemize}
+				\end{frame}
+				
 			\subsection{JSON}
+				\begin{frame}
+					\frametitle{JSON}
+					\begin{itemize}
+						\item{Javascript Object Notation}
+						\item{Como foi empregada na aplicação}
+					\end{itemize}
+				\end{frame}
+				
 		\section{Diagramas da fase de projeto}
+			\subsection{Diagrama de Classes}
+				\pgfdeclareimage[interpolate=true,height=7cm,width=10cm]{classe3}{classe3}
+				\begin{frame}
+					\framezoom<1><2>[border](0.22cm,0.22cm)(4.3cm,2.86cm)
+					\frametitle{Cadastrar carroUsuario}
+					\pgfuseimage{classe3}
+				\end{frame}
 		
 	\part{Sprint 4}
 		
@@ -194,7 +245,7 @@
 			\subsection{O backlog do produto}
 			\subsection{O protótipo de interface}
 			\subsection{O diagrama conceitual}
-				\pgfdeclareimage[height=7cm]{diaconc}{classes_lavoura_t}
+				\pgfdeclareimage[interpolate=true,height=7cm]{diaconc}{classes_lavoura_t}
 				\begin{frame}
 					\frametitle{O que conceitualmente foi projetado}
 					\framesubtitle{E o que realmente foi entregue}
@@ -206,7 +257,7 @@
 			\subsection{Melhoramentos}
 		\section{Conclusão}
 			\begin{center}
-				\textbf{Estamos abertos a questionamentos}
+				\textbf{Não pegar compiladores e tópicos especiais em engenharia de software ao mesmo tempo.}
 			\end{center}
 		%E aqui embaixo adicionamos bibliografia :B
 \end{document}

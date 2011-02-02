@@ -70,4 +70,4 @@ class CarroUsuario(models.Model):
 		return self.carro.modelo
 	   
 	def get_absolute_url(self):
-		pass
+		return reverse('carrousuario', kwargs={'carro_id': self.id})
