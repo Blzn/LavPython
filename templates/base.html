@@ -16,66 +16,55 @@
 	
 	{% block scripts %}
 		<script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+		<script type="text/javascript">
+			function getElementsByClassName(classname, node) 
+			{
+				//VALEU, MANOLO!onze!!11!!  http://snipplr.com/view/1696/get-elements-by-class-name/
+				if(!node) node = document.getElementsByTagName("body")[0];
+				var a = [];
+				var re = new RegExp('\\b' + classname + '\\b');
+				var els = node.getElementsByTagName("*");
+				for(var i=0,j=els.length; i<j; i++)
+					if(re.test(els[i].className)) a.push(els[i]);
+				return a;
+			}
+			function show_submenus(className)
+			{
+				var children = getElementsByClassName(className);
+				for(var x = 0; x < children.length; x++)
+				{
+					if(children[x].style.display == "none")
+					{
+						children[x].style.display = "block";
+					}
+					else
+					{
+						children[x].style.display = "none";
+					}
+				}
+			}
+		</script>
 	{% endblock scripts %}
-
-
 </head>
 
-<!-- Excluir essa coisa horrível -->
 {% block body %}
 	<body>
 {% endblock body %}
+
 	<div id="todo">
-		{% block topo %}
-			<div id="topo">
-				<div class="topo_direita">
-					{% if user.is_authenticated %}
-						<a href="">Sair</a>
-
-					{% else %}
-						<form action="/entrar/" method="post" accept-charset="utf-8">
-							{% csrf_token %}
-							<span>Email</span><br/><input type="text" name="username" value="" id="username" />
-							<span>Senha</span><br/><input type="password" name="password" value="" id="password" />
-							<p><input type="submit" value="Login"></p>
-						</form>
-					{% endif %}
-				</div>
-				<div class="topo_esquerda"></div>
-			</div>
-			<div id="menu">
-					<p><a href="">Home</a></p>
-					{% if user.is_authenticated %}
-						<p><a href="">Gerenciar Conta</a></p>
-					{% else %}
-						<p><a href="">Cadastrar-se</a></p>
-					{% endif %}				
-					<p><a href="">Contato</a></p>
-					<p><a href="">FAQ</a></p>
-					<p><a href="">Sobre nós</a></p>
-			</div>
-		{% endblock topo %}
-
-
-
-
+		{% include "top.html" %}
 	    <div class="corpo">
 			<h1>{% block h1 %}{% endblock %}</h1>
-			<div class="left_sidebar">
-				{% block left_sidebar %}{% endblock %}
-			</div>
+			
+			{% include "left_sidebar.html" %}
+			
 			<div class="conteudo">
 				{% block conteudo %}{% endblock %}
 			</div>
-			<div class="right_sidebar">
-				{% block right_sidebar %}{% endblock %}
-			</div>	
 	    </div>
 
-		<div id="rodape">
-			{% block rodape %}
-			{% endblock %}
-		</div>
+		{% include "footer.html" %}
+		
 	</div>
 </body> 
 </html>

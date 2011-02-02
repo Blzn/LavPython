@@ -9,7 +9,8 @@ from django.http import HttpResponseRedirect, Http404, HttpResponse
 from functions import *
 
 @login_required
-def exibir_historico_trocas(request,carro_id):
+def exibir_historico_trocas(request):
+    carros = CarroUsuario.objects.filter(usuario=request.user)
     return render_to_response('hist_geral.html',locals(),context_instance = RequestContext(request))
 
 @login_required
@@ -36,7 +37,7 @@ def get_trocas(request):
 		troca.paraPeca = para_peca.modelo,
 		troca.paraFabricante = para_fabricante.nome,
 		troca.desgaste = historico.desgaste,
-		troca.diaDaTroca = historico.diaDaTroca.strftime("%Y %b %d"),
+		troca.diaDaTroca = historico.diaDaTroca.strftime("%d/%m/%Y"),
 		troca.quilometragem = historico.quilometragem
 		dados.append(troca)
 	retorno = json_repr(dados)

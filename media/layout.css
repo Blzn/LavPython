@@ -9,7 +9,7 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6{
-	border-bottom: 1px solid orange;
+	border-bottom: 1px solid Moccasin;
 	width: 70%;
 }	
 a {
@@ -18,83 +18,129 @@ a {
 }
 
 a:hover{
-	color: orange;
+	color: Black;
 }
 
 input,textarea {
-	border: 1px solid orange;
-	background-color: black;
+	border: 1px solid Moccasin;
+	background-color: DimGray;
 	color: white;
 }
 
 
 #todo{
-	width: 800px;
+	width: 950px;
 	margin: 0 auto;
 	text-align: left;
 }
 
 #topo {
-	height: 150px;
-	opacity: 0.8;
+    background-color: lightslategray;
+    border: 1px solid moccasin;
+    height: 150px;
+    opacity: 0.8;
 }
 .topo_direita
 {
 	float:right;
-	margin-top:auto;
+	margin: 25px 10px 25px 10px;
 	text-align:left;
-	width:200px;
+	width:220px;
+}
+
+.label_e_text
+{
+	margin: 5px;
 }
 
 .topo_esquerda
 {
 	height:71px;
-	margin:auto auto auto 10px;
+	margin: 14px 10px 8px 15px;
 	text-align:left;
-	width:100px;
-	background-color: black;
+	width:150px;
+	background: url(images/Picard_Facepalm_by_LuckyHRE.gif);
+	height: 120px;
 }
 
 #menu
 {
 	clear:both;
-	border: 1px solid orange;
-	height:50px;
+	border: 1px solid Moccasin;
+	height:48px;
 	margin-top:10px;
-	background-color: black;
-	background-color: black;
+	background-color: LightSlateGray;
 	opacity: 0.8;
 }
 
 #menu p
 {
 	float:left;
-	margin-top:5px;
+	margin-top:3px;
 	padding:10px;
 	text-align:center;
 }
 
+#menu p:hover
+{
+	background-color: LightSteelBlue;
+}
 .corpo{
 	opacity: 0.8;
 }	
 
-
-.left_sidebar
-{
-	
-	float:left;
-	height:300px;
-	width:20%;
+.corpo h1 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 540px;
 }
 
+.left_sidebar {
+    background-color: LightSlateGray;
+    float: left;
+    height: auto;
+    margin-right: 15px;
+	margin-bottom: 10px;
+    width: 19%;
+}
+
+.menu_esquerda
+{
+	border: 1px solid moccasin;
+	height: auto;
+	text-align: center;
+	padding: 10px;
+	margin: 2px
+}
+
+.menu_esquerda:hover
+{
+	background-color: LightSteelBlue;
+}
+
+.submenu_esquerda
+{
+    border: 1px solid moccasin;
+    font-size: 11px;
+    height: auto;
+    margin: 2px;
+    text-align: center;
+	display: none;
+}
+
+.submenu_esquerda:hover
+{
+	background-color: LightSteelBlue;
+}
 .conteudo
 {
-	/*border-left: solid 1px orange;
-	border-right: solid 1px orange;*/
+	border: 1px solid moccasin;
 	float:left;
 	height:100%;
-	width:59%;
+	width:77%;
 	padding: 10px;
+	background-color: LightSlateGray;
+	margin-bottom: 10px;
 }
 
 .right_sidebar
@@ -108,11 +154,94 @@ input,textarea {
 
 #rodape
 {
-	border: 1px solid orange;
+	border: 1px solid Moccasin;
 	width:100%;
 	height: 50px;
 	margin-top: 20px;
 	clear: both;
-	background-color: black;
+	background-color: LightSlateGray;
 	opacity: 0.8;
+}
+
+.input_select
+{
+	margin: 5px;
+}
+
+.historico_table
+{
+	margin: 10px auto 10px auto;
+	border: 1px solid white;
+	width: 573px;
+}
+
+
+.historico_table_head div
+{
+	float:left;
+}
+
+.historico_table_body div
+{
+	float:left;
+}
+
+.historico_table_dePeca
+{
+	width:80px;
+	text-align: center;
+}
+
+.historico_table_fabricante
+{
+	width:96px;
+	text-align: center;
+}
+.historico_table_desgaste
+{
+	width:66px;
+	text-align: center;
+}
+.historico_table_paraPeca
+{
+	width:80px;
+	text-align: center;
+}
+.historico_table_data
+{
+	width:96px;
+	text-align: center;
+}
+.historico_table_quilometragem
+{
+	width:45px;
+	text-align: center;
+}
+
+#meus_carros
+{
+	margin: auto;
+	padding: 10px;
+}
+
+#meus_carros input
+{
+	margin: 20px 15px 0px 15px;
+}
+
+.meu_carro a
+{
+	margin: 20px 15px 20px 15px;
+}
+
+#map_canvas
+{
+	margin: 10px auto; 
+	width: 700px; 
+	height: 300px; 
+}
+
+.campos_trajeto input
+{
+	margin: 10px 5px;
 }

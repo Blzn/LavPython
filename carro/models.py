@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 COMBUSTIVEIS = (
 	('A','Alcool'),
@@ -62,8 +63,11 @@ class CarroUsuario(models.Model):
 	pastilhaFreio = models.ForeignKey(PastilhaFreio)
 	kmPastilha = models.DecimalField(max_digits = 10,decimal_places=2,default=0,verbose_name="Km da pastilha",help_text="Quilometragem rodada utilizando essa pastilha")
 
-	quilometragem = models.DecimalField(max_digits = 10,decimal_places=2)
+	quilometragem = models.DecimalField(max_digits = 10,decimal_places=2,default=0)
 	ultimoUpdate = models.DateField()
 
 	def __unicode__(self):
 		return self.carro.modelo
+	   
+	def get_absolute_url(self):
+		pass

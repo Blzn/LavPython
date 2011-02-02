@@ -1,0 +1,23 @@
+﻿{% block topo %}
+	<div id="topo">
+		<div class="topo_direita">
+			{% if user.is_authenticated %}
+				<span>Bem vindo {{ user.username }}</span><br/>
+				<a href="{% url sair %}">Sair</a>
+			{% else %}
+				<form action="/entrar/" method="post" accept-charset="utf-8">
+					{% csrf_token %}
+					<div class="label_e_text">
+						<label for="email">Email</label> <input type="text" name="username" value="" id="username" />
+					</div>
+					<div class="label_e_text">
+						<label for="senha">Senha</label> <input type="password" name="password" value="" id="password" />
+					</div>
+					<p><input type="submit" value="Login"></p>
+				</form>
+			{% endif %}
+		</div>
+		<div class="topo_esquerda"></div>
+	</div>
+	{% include "menu.html" %}
+{% endblock topo %}

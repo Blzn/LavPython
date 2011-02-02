@@ -1,0 +1,11 @@
+﻿<div id="menu">
+		<p><a href="">Home</a></p>
+		{% if user.is_authenticated %}
+			<p><a href="">Gerenciar Conta</a></p>
+		{% else %}
+			<p><a href="{% url usuario.views.registrar %}">Cadastrar-se</a></p>
+		{% endif %}				
+		<p><a href="">Contato</a></p>
+		<p><a href="">FAQ</a></p>
+		<p><a href="">Sobre nós</a></p>
+</div>

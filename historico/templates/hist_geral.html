@@ -14,7 +14,33 @@
 				$.ajax(
 				{
 					type: "GET",
-					url: '/historico/get_trocas?tipo_peca='+$('.tipos_peca').val()+'&carro_id=1',
+					url: '/historico/get_trocas?tipo_peca='+$('.tipos_peca').val()+'&carro_id='+$('.carros').val(),
+					dataType: "json",
+					success: function(retorno)
+					{
+						$(".historico_table_body").children().remove();
+						$.each(retorno, function(i, historico)
+						{
+							$(".historico_table_body").append(
+								'<div class="historico_table_dePeca">'+historico.dePeca+'</div>'+
+								'<div class="historico_table_fabricante">'+historico.deFabricante+'</div>'+
+								'<div class="historico_table_desgaste">'+historico.desgaste+'</div>'+
+								'<div class="historico_table_paraPeca">'+historico.paraPeca+'</div>'+
+								'<div class="historico_table_fabricante">'+historico.paraFabricante+'</div>'+
+								'<div class="historico_table_data">'+historico.diaDaTroca+'</div>'+
+								'<div class="historico_table_quilometragem">'+historico.quilometragem+'</div><br/>'
+							);
+
+						});
+					}
+				});
+			});
+			$(".carros").change(function()
+			{
+				$.ajax(
+				{
+					type: "GET",
+					url: '/historico/get_trocas?tipo_peca='+$('.tipos_peca').val()+'&carro_id='+$('.carros').val(),
 					dataType: "json",
 					success: function(retorno)
 					{
@@ -43,11 +69,24 @@
 {% block conteudo %}
 	{{ block.super }}
 	
-	<select class="tipos_peca">
-		<option value="undefined">-------</option>
-		<option value="MT">Motor</option>
-		<option value="PF">Pastilha de Freio</option>
-	</select>
+	<div class="input_select">
+		<label for="seleciona_carro">Selecione um carro:</label>
+		<select class="carros">
+			<option value="undefined">-------</option>
+			{% for meu_carro in carros %}
+				<option value="{{ meu_carro.id }}">{{ meu_carro.carro.modelo }}</option>
+			{% endfor %}
+		</select>
+	</div>
+
+	<div class="input_select">
+		<label for="seleciona_peca">Selecione uma peça:</label>	
+		<select class="tipos_peca">
+			<option value="undefined">-------</option>
+			<option value="MT">Motor</option>
+			<option value="PF">Pastilha de Freio</option>
+		</select>
+	</div>
 	
 	<div class="historico_table">
 		<div class="historico_table_head">
@@ -57,8 +96,8 @@
 			<div class="historico_table_paraPeca">Para Peça</div>
 			<div class="historico_table_fabricante">Fabricante</div>
 			<div class="historico_table_data">Data</div>
-			<div class="historico_table_quilometragem">Quilometragem</div>
-		</div>
+			<div class="historico_table_quilometragem">Km</div>
+		</div><br/>
 		<!-- o loop vai ser posto via ajax entao rlx -->
 		<div class="historico_table_body"></div>
 	</div>

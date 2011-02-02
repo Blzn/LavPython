@@ -1,0 +1,11 @@
+﻿<div class="left_sidebar">
+	{% block left_sidebar %}
+		<p class="menu_esquerda" id="menu_carros" onClick="show_submenus('submenu_carros');">Carros</p>
+		<p class="submenu_esquerda submenu_carros"><a href="{% url historico.views.exibir_historico_trocas %}">Histórico Trocas</a></p>
+		<p class="submenu_esquerda submenu_carros"><a href="{% url carro.views.cad_carro %}">Cadastrar Carro</a></p>
+		<p class="submenu_esquerda submenu_carros"><a href="{% url carro.views.meus_carros %}">Meus Carros</a></p>
+		<p class="menu_esquerda" id="menu_trajetos" onClick="show_submenus('submenu_trajetos');">Trajetos</p>	
+		<p class="submenu_esquerda submenu_trajetos"><a href="{% url trajeto.views.trajeto %}">Adicionar Trajetos</a></p>
+		<p class="submenu_esquerda submenu_trajetos"><a href="{% url trajeto.views.meus_trajetos %}">Meus Trajetos</a></p>
+	{% endblock %}
+</div>

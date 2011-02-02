@@ -4,6 +4,7 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect, HttpResponse
 from forms import FormCadastro, FormEdit
 from usuario.models import Usuario
+from django.contrib.auth.decorators import login_required
 
 def registrar(request):
     if request.method == 'POST':
@@ -22,7 +23,7 @@ def registrar(request):
 
 def edituser(request):
     if request.method == 'POST':
-        usuario = Usuario.objects.get(id=1)
+        usuario = Usuario.objects.get(user=request.user)
         form = FormEdit(request.POST,instance=usuario)
         if form.is_valid():
             usuario_edit = form.save(commit=False)
@@ -30,7 +31,7 @@ def edituser(request):
             usuario_edit.save()
             return HttpResponseRedirect('/')
     else:
-        usuario = Usuario.objects.get(id=1)
+        usuario = Usuario.objects.get(user=request.user)
         form = FormEdit(instance=usuario)
         
         #form = FormCadastro(instance=request.user)

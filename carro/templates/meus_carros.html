@@ -1,12 +1,16 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 {% block topo %}{{ block.super }}{% endblock topo %}
 {% block conteudo %}
-<ul>
-  {% for meu_carro in carros %}
-    <li>{{ meu_carro.carro.modelo }}</a></li>
-    {% endfor %}
-</ul>
-<a href="{% url cadCarro %}">Adicionar Novo Carro</a>
+<div id="meus_carros">
+	{% for meu_carro in carros %}
+		<div class="meu_carro">
+			<a href="{{ meu_carro.get_absolute_url }}">{{ meu_carro.carro.modelo }}</a>
+			----------------
+			<input type=button value="Trocar Peças" onClick="parent.location='{% url carro.views.troca_pecas carro_id=meu_carro.pk %}'" />
+		</div>
+	{% endfor %}
+	<input type=button value="Adicionar Novo Carro" onClick="parent.location='{% url carro.views.cad_carro %}'" />
+</div>
 
 {% endblock %}

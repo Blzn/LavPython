@@ -16,6 +16,7 @@
 {% endblock body %}
 
 {% block scripts %}
+	{{ block.super }}
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
 	<script type="text/javascript">
 	var directionDisplay;
@@ -88,8 +89,9 @@
 		}
 		
 		 document.getElementById('campos').innerHTML = {% csrf_token %} +
-	  '<input type="submit" value="Confirma">' +
-	'<input type="text" name="nome" id="nome">';
+			'<label for="nome_trajeto">Nome do trajeto:</label>'+
+			'<input type="text" name="nome" id="nome">'+
+			'<input type="submit" value="Confirma">';
 
 			document.getElementById('campos').innerHTML += '<input type="hidden" value="'+ route.legs[0].distance.text +'" name="distancia" id="distancia">';
 		  for(var i = 0; i < waypoints.length; i++)
@@ -99,6 +101,7 @@
 
 	 //     alert(document.getElementById('distancia').value);
 	  //    alert(waypoints[0])
+		 document.getElementById('distancia_texto').value = document.getElementById('distancia').value; 
 	  });
 	  
 	}
@@ -116,8 +119,10 @@
 		  waypoints.length = 0;
 
 		 document.getElementById('campos').innerHTML = {% csrf_token %} +
-	  '<input type="submit" value="Confirma">' +
-	'<input type="text" name="nome" id="nome">';
+			'<label for="nome_trajeto">Nome do trajeto:</label>'+
+			'<input type="text" name="nome" id="nome">'+
+			'<input type="submit" value="Confirma">';
+		document.getElementById('distancia_texto').value = "";
 	  }
 	}
 
@@ -126,12 +131,18 @@
 
 {% block conteudo %}
 	{{ block.super }}
-	<div><div id="map_canvas" style="float:left;width:500px; height:500px"></div></div>
-	<input method="post" type="submit" value="Calcular Rota" onClick="calcRoute()">
-	<input type="button" onClick="deleteOverlays()" value="delete">
-	<form name="campos" id="campos" action="" method="post" autocomplete="off">{% csrf_token %}
-		<input type="submit" value="Confirma">
-		<input type="text" name="nome" id="nome">
-	</form>
+	<div id="map_canvas"></div>
+	<div class="campos_trajeto">
+		<input method="post" type="submit" value="Calcular Rota" onClick="calcRoute()">
+		<input type="button" onClick="deleteOverlays()" value="Limpar Pontos">
+		<label for="distancia_texto">Distância do trajeto:</label>
+		<input type="text" value="" id="distancia_texto" disabled="disabled" size="7"/>
+		<form name="campos" id="campos" action="" method="post" autocomplete="off">
+			{% csrf_token %}
+			<label for="nome_trajeto">Nome do trajeto:</label>
+			<input type="text" name="nome" id="nome">
+			<input type="submit" value="Confirma">
+		</form>
+	</div>
 {% endblock conteudo %}
 

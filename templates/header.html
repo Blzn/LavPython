@@ -1,6 +1,48 @@
-{%  load i18n %}
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+	<title>{% block titulo %}Lavoura Car{% endblock %}</title>
 
-<div class="header">
-{% include "entrar.html" %}
-  
-</div>
+	{% block meta %}
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Language" content="pt-br" />
+		<meta name="keywords" content="Carros, Utilidade, Automotivos, Trajeto" />
+		<meta name="description" content="Site voltado para gerência de automóveis e trajetos">
+	{% endblock meta %}
+
+	{% block style %}
+		<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}layout.css"/>
+	{% endblock style %}
+	
+	{% block scripts %}
+		<script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+		<script type="text/javascript">
+			function getElementsByClassName(classname, node) 
+			{
+				//VALEU, MANOLO!onze!!11!!  http://snipplr.com/view/1696/get-elements-by-class-name/
+				if(!node) node = document.getElementsByTagName("body")[0];
+				var a = [];
+				var re = new RegExp('\\b' + classname + '\\b');
+				var els = node.getElementsByTagName("*");
+				for(var i=0,j=els.length; i<j; i++)
+					if(re.test(els[i].className)) a.push(els[i]);
+				return a;
+			}
+			function show_submenus(className)
+			{
+				var children = getElementsByClassName(className);
+				for(var x = 0; x < children.length; x++)
+				{
+					if(children[x].style.display == "none")
+					{
+						children[x].style.display = "block";
+					}
+					else
+					{
+						children[x].style.display = "none";
+					}
+				}
+			}
+		</script>
+	{% endblock scripts %}
+</head>
