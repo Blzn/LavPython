@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+	Atualiza&ccedil;&atilde;o de usuario - {{ block.super }}
+{% endblock %}
+
+{% block h1 %}Atualiza&ccedil;&atilde;o de usuario{% endblock %}
+
+{% block conteudo %}
+	{{ block.super }}
+	<form method="post">
+		{% csrf_token %}
+		<table class="form">
+			{{ form }}
+			<tr>
+				<th>&nbsp;</th>
+					<td>
+						<input type="submit" value="Atualizar"/>
+					</td>
+			</tr>
+		</table>
+	</form>
+{% endblock conteudo %}

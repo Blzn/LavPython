@@ -53,5 +53,9 @@ class Usuario(models.Model):
         
         super(Usuario, self).save()
         
+    def update(self):
+        u = Usuario.objects.get(pk=1)  
+        
+        
     def __unicode__(self):
         return self.nome    

@@ -9,9 +9,24 @@ class FormLogin(forms.Form):
     email = forms.EmailField(max_length=255)
     senha = forms.CharField(max_length = 30, widget = forms.PasswordInput)
 
+class FormEdit(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        exclude = ('user','email','senha',)
+
+    def save(self, commit=True):
+         usuario = super(FormEdit, self).save(commit=False)
+        
+         if commit:
+             usuario.save()
+             
+         return usuario
+    
+
+
 class FormCadastro(forms.ModelForm):
     class Meta:
-		model = Usuario
+        model = Usuario
 		#fields = ('nome','sobrenome','sexo','dataNascimento','email','senha','endereco','num','complemento','cep','bairro','estado','cidade','dataCadastro')
 		
     confirme_a_senha = forms.CharField(max_length=30, widget=forms.PasswordInput, label='confirma senha')
@@ -40,3 +55,7 @@ class FormCadastro(forms.ModelForm):
             usuario.save()
         
         return usuario
+    
+
+            
+    

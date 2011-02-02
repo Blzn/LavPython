@@ -83,6 +83,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
+AUTH_PROFILE_MODULE = "usuario.Usuario"
 
 ROOT_URLCONF = 'LavPython.urls'
 
