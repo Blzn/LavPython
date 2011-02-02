@@ -1,0 +1,5 @@
+from django.conf.urls.defaults import *
+
+urlpatterns = patterns('contato.views',
+                       url(r'contato/$','contato', name= 'Contato'),
+                       )
