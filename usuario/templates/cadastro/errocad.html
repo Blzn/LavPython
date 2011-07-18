@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Erro no cadastro! - {{ block.super}}
+{% endblock %}
+
+{% block conteudo %}
+    Ocorreu um erro durante o cadastro do usuário. Informe a seguinte mensagem ao seu administrador ou setor de suporte: <br> {{ excecao }}
+{% endblock conteudo %}

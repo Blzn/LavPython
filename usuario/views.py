@@ -33,9 +33,16 @@ def registrar(request):
         try:
             if form.is_valid():
                 novo_usuario = form.save(commit=True)
+                raise DataError
                 novo_usuario.save()
-        except IntegrityError:
-            transaction.rollback()
+        except Exception as inst:
+            transaction.rollback()            
+            excecao = str(type(inst)) + " : "
+            excecao += inst.__str__()
+            return render_to_response(
+                'cadastro/errocad.html',
+                locals(),
+                context_instance=RequestContext(request),)
         else:
             transaction.commit()
             return HttpResponseRedirect('/')
